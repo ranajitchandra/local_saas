@@ -128,6 +128,48 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+.quickmart-theme {
+    --background: #f2fbf7;
+    --foreground: #011D1A;
+    --card: #ffffff;
+    --card-foreground: #011D1A;
+    --popover: #ffffff;
+    --popover-foreground: #011D1A;
+    --primary: #108A7E;
+    --primary-foreground: #ffffff;
+    --secondary: #18B3A4;
+    --secondary-foreground: #011D1A;
+    --muted: #e6fcf5;
+    --muted-foreground: #108A7E;
+    --accent: #e6fcf5;
+    --accent-foreground: #108A7E;
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: rgba(24, 179, 164, 0.15);
+    --input: rgba(24, 179, 164, 0.2);
+    --ring: #18B3A4;
+}
+
+.dark .quickmart-theme, .quickmart-theme.dark {
+    --background: #011D1A;
+    --foreground: #e6fcf5;
+    --card: #032723;
+    --card-foreground: #e6fcf5;
+    --popover: #032723;
+    --popover-foreground: #e6fcf5;
+    --primary: #21DECC;
+    --primary-foreground: #011D1A;
+    --secondary: #18B3A4;
+    --secondary-foreground: #e6fcf5;
+    --muted: rgba(16, 138, 126, 0.2);
+    --muted-foreground: #21DECC;
+    --accent: rgba(16, 138, 126, 0.25);
+    --accent-foreground: #21DECC;
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: rgba(33, 222, 204, 0.15);
+    --input: rgba(33, 222, 204, 0.2);
+    --ring: #21DECC;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

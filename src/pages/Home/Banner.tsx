@@ -1,29 +1,29 @@
 // Landing Banner Component
 export default function Banner() {
     return (
-        <section className="w-full bg-[#e6fcf5] py-12 md:py-16 px-6 relative overflow-hidden select-none">
+        <section className="w-full bg-muted/30 py-12 md:py-16 px-6 relative overflow-hidden select-none transition-colors duration-200">
             <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-center">
 
                 {/* Left Side Info Panel */}
                 <div className="md:col-span-7 flex flex-col items-start text-left space-y-6">
-                    <div className="inline-flex items-center rounded-full px-3 py-1 text-[10px] font-bold bg-[#c3fae8] text-[#0c8569] tracking-wider uppercase border border-[#a3e9d2]/40">
+                    <div className="inline-flex items-center rounded-full px-3 py-1 text-[10px] font-bold bg-secondary/20 text-primary tracking-wider uppercase border border-primary/20 transition-colors">
                         Express Delivery Available
                     </div>
 
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-zinc-900 tracking-tight leading-[1.1]">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground tracking-tight leading-[1.1]">
                         Everything You Need <br />
-                        <span className="italic text-[#0a685c] font-extrabold">Delivered To Your Door</span>
+                        <span className="italic text-primary font-extrabold transition-colors">Delivered To Your Door</span>
                     </h1>
 
-                    <p className="text-sm sm:text-base text-zinc-600 max-w-xl leading-relaxed">
+                    <p className="text-sm sm:text-base text-foreground/75 max-w-xl leading-relaxed">
                         Shop groceries, medicine, electronics, household items and thousands more products from verified vendors across the city.
                     </p>
 
                     <div className="flex flex-wrap gap-4 pt-2">
-                        <button className="bg-[#0a685c] hover:bg-[#08534a] active:translate-y-px text-white text-sm font-bold px-6 py-3 rounded-lg shadow-sm transition-all cursor-pointer">
+                        <button className="bg-primary hover:bg-primary/95 active:translate-y-px text-primary-foreground text-sm font-bold px-6 py-3 rounded-lg shadow-sm transition-all cursor-pointer">
                             Shop Now
                         </button>
-                        <button className="bg-transparent hover:bg-[#0a685c]/5 text-[#0a685c] border border-[#0a685c] text-sm font-bold px-6 py-3 rounded-lg transition-all cursor-pointer">
+                        <button className="bg-transparent hover:bg-primary/5 text-primary border border-primary text-sm font-bold px-6 py-3 rounded-lg transition-all cursor-pointer">
                             Become a Vendor
                         </button>
                     </div>
@@ -31,7 +31,7 @@ export default function Banner() {
 
                 {/* Right Side Mock Display Image Panel */}
                 <div className="md:col-span-5 flex justify-center items-center">
-                    <div className="relative overflow-hidden rounded-2xl w-full max-w-[420px] aspect-[4/3] md:aspect-square shadow-xl shadow-teal-950/10 border border-teal-100 bg-[#0d2a25]">
+                    <div className="relative overflow-hidden rounded-2xl w-full max-w-[420px] aspect-[4/3] md:aspect-square shadow-xl shadow-primary/5 border border-border/50 bg-[#032723]">
                         <img
                             src="/src/assets/hero.png"
                             alt="Telemetry Organic Products"
