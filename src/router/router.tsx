@@ -1,13 +1,44 @@
-
-
-import { createBrowserRouter } from "react-router";
-import { MainLayout } from "../layouts/MainLayout";
-import { Dashboard } from "../pages/Dashboard";
+import { createBrowserRouter, Navigate } from "react-router"
+import { MainLayout } from "../layouts/MainLayout"
+import { DashboardLayout } from "../layouts/DashboardLayout"
+import { AuthLayout } from "../layouts/AuthLayout"
+import { Dashboard } from "../pages/Dashboard"
+import { Login } from "../pages/Login"
+import { Register } from "../pages/Register"
+import HomePage from "@/pages/Home/HomePage"
 
 export const router = createBrowserRouter([
     {
+        path: "/auth",
+        element: <AuthLayout />,
+        children: [
+            {
+                index: true,
+                element: <Navigate to="login" replace />,
+            },
+            {
+                path: "login",
+                element: <Login />,
+            },
+            {
+                path: "register",
+                element: <Register />,
+            },
+        ]
+    },
+    {
         path: "/",
         element: <MainLayout />,
+        children: [
+            {
+                index: true,
+                element: <HomePage />
+            },
+        ]
+    },
+    {
+        path: "/dashboard",
+        element: <DashboardLayout />,
         children: [
             {
                 index: true,
@@ -89,6 +120,6 @@ export const router = createBrowserRouter([
                     </div>
                 )
             }
-        ],
-    },
-]);
+        ]
+    }
+])
