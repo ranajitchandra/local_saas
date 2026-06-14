@@ -5,51 +5,10 @@ import { Shirt, ArrowRight } from "lucide-react"
 import { ProductCard } from "./ProductCard"
 import { SwiperNavigation } from "./SwiperNavigation"
 import "swiper/css"
-import type { FashionProduct } from "@/types/product"
+import { fashionproducts } from "@/Mock_Data/data"
 
 export function FashionCategory() {
-    const products: FashionProduct[] = [
-        {
-            id: "f-1",
-            name: "Velocity Running Shoes",
-            category: "Footwear",
-            rating: 4.8,
-            price: "$125.00",
-            image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "f-2",
-            name: "Minimalist Silver Watch",
-            category: "Accessories",
-            rating: 4.9,
-            price: "$189.00",
-            image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "f-3",
-            name: "Premium Leather Biker Jacket",
-            category: "Outerwear",
-            rating: 4.7,
-            price: "$210.00",
-            image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "f-4",
-            name: "Classic Tote Handbag",
-            category: "Accessories",
-            rating: 4.8,
-            price: "$95.00",
-            image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "f-5",
-            name: "Slim Fit Raw Denim",
-            category: "Apparel",
-            rating: 4.9,
-            price: "$78.00",
-            image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&q=80"
-        }
-    ]
+
 
     return (
         <div className="space-y-4">
@@ -94,7 +53,7 @@ export function FashionCategory() {
                     }}
                     className="w-full"
                 >
-                    {products.map((product) => (
+                    {fashionproducts.map((product) => (
                         <SwiperSlide key={product.id} className="h-auto">
                             <ProductCard product={product} />
                         </SwiperSlide>

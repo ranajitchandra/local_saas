@@ -5,100 +5,10 @@ import { ShoppingBag, ArrowRight } from "lucide-react"
 import { ProductCard } from "./ProductCard"
 import { SwiperNavigation } from "./SwiperNavigation"
 import "swiper/css"
-import type { GroceryProduct } from "@/types/product"
+import { groceryproducts } from "@/Mock_Data/data"
 
 export function GroceryCategory() {
-    const products: GroceryProduct[] = [
-        {
-            id: "g-1",
-            name: "Organic Fuji Apples",
-            category: "Produce",
-            rating: 4.9,
-            reviewsCount: 42,
-            price: "$4.99",
-            unit: "lb",
-            image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-2",
-            name: "Whole Farm Milk 1Gal",
-            category: "Dairy",
-            rating: 4.8,
-            reviewsCount: 128,
-            price: "$3.50",
-            image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-3",
-            name: "Premium Hass Avocados",
-            category: "Produce",
-            rating: 4.7,
-            price: "$1.80",
-            unit: "pc",
-            image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-4",
-            name: "Artisan Sourdough Bread",
-            category: "Bakery",
-            rating: 5.0,
-            price: "$6.25",
-            image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-5",
-            name: "Premium Dark Roast Coffee",
-            category: "Beverages",
-            rating: 4.9,
-            price: "$12.99",
-            image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-6",
-            name: "Organic Fuji Apples",
-            category: "Produce",
-            rating: 4.9,
-            reviewsCount: 42,
-            price: "$4.99",
-            unit: "lb",
-            image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-7",
-            name: "Whole Farm Milk 1Gal",
-            category: "Dairy",
-            rating: 4.8,
-            reviewsCount: 128,
-            price: "$3.50",
-            image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-8",
-            name: "Premium Hass Avocados",
-            category: "Produce",
-            rating: 4.7,
-            price: "$1.80",
-            unit: "pc",
-            image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-9",
-            name: "Artisan Sourdough Bread",
-            category: "Bakery",
-            rating: 5.0,
-            price: "$6.25",
-            image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "g-10",
-            name: "Premium Dark Roast Coffee",
-            category: "Beverages",
-            rating: 4.9,
-            price: "$12.99",
-            image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&auto=format&fit=crop&q=80"
-        }
-    ]
-
+  
     return (
         <div className="space-y-14">
             {/* Section Main Header */}
@@ -152,7 +62,7 @@ export function GroceryCategory() {
                         }}
                         className="w-full"
                     >
-                        {products.map((product) => (
+                        {groceryproducts.map((product) => (
                             <SwiperSlide key={product.id} className="h-auto">
                                 <ProductCard product={product} />
                             </SwiperSlide>

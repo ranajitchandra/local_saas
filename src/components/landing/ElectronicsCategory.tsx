@@ -4,51 +4,10 @@ import { Monitor, ArrowRight } from "lucide-react"
 import { ProductCard } from "./ProductCard"
 import { SwiperNavigation } from "./SwiperNavigation"
 import "swiper/css"
-import type { ElectronicsProduct } from "@/types/product"
+import { electronicsproducts } from "@/Mock_Data/data"
 
 export function ElectronicsCategory() {
-    const products: ElectronicsProduct[] = [
-        {
-            id: "e-1",
-            name: "Noise Cancelling Pro",
-            category: "Audio",
-            rating: 4.8,
-            price: "$249.00",
-            image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "e-2",
-            name: "Creative Pad 12\"",
-            category: "Computing",
-            rating: 4.7,
-            price: "$799.00",
-            image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "e-3",
-            name: "ProMax X-1 Phone",
-            category: "Mobile",
-            rating: 4.9,
-            price: "$999.00",
-            image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "e-4",
-            name: "Smart Track Series 5",
-            category: "Wearables",
-            rating: 4.6,
-            price: "$199.00",
-            image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&auto=format&fit=crop&q=80"
-        },
-        {
-            id: "e-5",
-            name: "HomeSync Voice Hub",
-            category: "Home Tech",
-            rating: 4.5,
-            price: "$129.00",
-            image: "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=400&auto=format&fit=crop&q=80"
-        }
-    ]
+   
 
     return (
         <div className="space-y-4">
@@ -93,7 +52,7 @@ export function ElectronicsCategory() {
                     }}
                     className="w-full"
                 >
-                    {products.map((product) => (
+                    {electronicsproducts.map((product) => (
                         <SwiperSlide key={product.id} className="h-auto">
                             <ProductCard product={product} />
                         </SwiperSlide>

@@ -11,21 +11,16 @@ import { FeaturedProducts } from "./FeaturedProducts/FeaturedProducts"
 export default function HomePage() {
     return (
         <main className="w-full flex flex-col bg-background transition-colors duration-200">
-            {/* Landing page main hero banner */}
-            <Banner />
-
-            {/* Categories Swiper Sliders Section */}
-            <section className="w-full py-12 md:py-16 px-6 lg:px-8 bg-background">
-                <div className="space-y-12">
-                    <ExploreCategories />
-                    <FeaturedProducts />
-                    <GroceryCategory />
-                    <ElectronicsCategory />
-                    <FashionCategory />
-                    <SpecialOffers />
-                    <Features />
-                    <Newsletter />
-                </div>
+            <section className="space-y-12 w-full py-12 md:py-16 px-6 bg-background">
+                <Banner />
+                <ExploreCategories />
+                <FeaturedProducts />
+                <GroceryCategory />
+                <ElectronicsCategory />
+                <FashionCategory />
+                <SpecialOffers />
+                <Features />
+                <Newsletter />
             </section>
         </main>
     )

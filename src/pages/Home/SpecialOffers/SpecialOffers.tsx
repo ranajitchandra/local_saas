@@ -1,47 +1,14 @@
-import type { Offer } from "@/types/offer";
+import { offers } from "@/Mock_Data/data";
 
-const offers: Offer[] = [
-    {
-        id: 1,
-        title: "Up to 40% Off Fresh Groceries",
-        subtitle: "WEEKLY FRESHNESS",
-        description:
-            "Get the freshest farm-to-table produce delivered within 2 hours of your order.",
-        image:
-            "https://images.unsplash.com/photo-1542838132-92c53300491e",
-        buttonText: "Claim Discount",
-        size: "large",
-    },
-    {
-        id: 2,
-        title: "Tech Clearance",
-        subtitle: "Flash sale on previous gen electronics.",
-        description: "",
-        image:
-            "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931",
-        buttonText: "Shop Now",
-        size: "small",
-    },
-    {
-        id: 3,
-        title: "Fashion Forward",
-        subtitle: "Exclusive autumn collection now live.",
-        description: "",
-        image:
-            "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
-        buttonText: "View Collection",
-        size: "small",
-    },
-];
 
 export default function SpecialOffers() {
     const featuredOffer = offers[0];
     const sideOffers = offers.slice(1);
 
     return (
-        <section className="bg-background py-16">
-            <div className="md:px-4">
-                <h2 className="mb-10 text-4xl font-bold text-foreground">
+        <section className="bg-background">
+            <div className="w-full">
+                <h2 className="mb-6 lg:mb-10 text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
                     Special Offers For You
                 </h2>
 
@@ -51,7 +18,7 @@ export default function SpecialOffers() {
                         <img
                             src={featuredOffer.image}
                             alt={featuredOffer.title}
-                            className="h-[500px] w-full object-cover"
+                            className="h-125 w-full object-cover"
                         />
 
                         <div className="absolute inset-0 bg-black/40" />
