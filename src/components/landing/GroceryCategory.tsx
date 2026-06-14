@@ -103,7 +103,7 @@ export function GroceryCategory() {
         <div className="space-y-14">
             {/* Section Main Header */}
             <div className="text-left">
-                <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+                <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
                     Shop by Category
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1.5">
@@ -112,7 +112,7 @@ export function GroceryCategory() {
             </div>
             <div className="">
                 {/* Category Section Header Row */}
-                <div className="flex items-center justify-between border-b border-teal-100/50 pb-3">
+                <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between border-b border-teal-100/50 pb-3">
                     <div className="flex items-center gap-3">
                         <div className="h-10 w-10 rounded-full bg-secondary/15 flex items-center justify-center text-primary border border-secondary/20">
                             <ShoppingBag className="h-5 w-5" />
@@ -123,11 +123,11 @@ export function GroceryCategory() {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex justify-center md:justify-start items-center gap-3">
                         <SwiperNavigation prevElClass="grocery-prev" nextElClass="grocery-next" />
                         <div className="h-4 w-px bg-teal-100/50" />
                         <a href="#" className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline group">
-                            Browse Grocery
+                            All Grocery
                             <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </a>
                     </div>
