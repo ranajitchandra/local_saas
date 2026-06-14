@@ -3,9 +3,10 @@ import {
     Search,
     MapPin,
     Heart,
-    ShoppingCart,
+    
     User
 } from "lucide-react"
+import CartDropdown from "../CartItemListPopover/CartPopover"
 
 export default function Header() {
     return (
@@ -43,8 +44,7 @@ export default function Header() {
                     <div className="hidden sm:flex items-center gap-1.5 text-left text-foreground/80 leading-tight">
                         <MapPin className="h-5 w-5 text-primary transition-colors" />
                         <div className="text-[11px] font-semibold">
-                            <div>New</div>
-                            <div>York, NY</div>
+                            <div>New York</div>
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@ export default function Header() {
 
                     {/* Shopping Cart icon with badge */}
                     <button className="text-foreground hover:text-primary transition-colors relative cursor-pointer">
-                        <ShoppingCart className="h-5.5 w-5.5" />
+                        <CartDropdown />
                         <span className="absolute -top-1 -right-1.5 bg-primary text-primary-foreground text-[9px] font-bold h-4 w-4 rounded-full flex items-center justify-center border border-background transition-colors">
                             3
                         </span>
