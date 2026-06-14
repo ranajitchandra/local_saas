@@ -6,7 +6,7 @@ import {
     
     User
 } from "lucide-react"
-import CartDropdown from "../CartItemListPopover/CartPopover"
+import CartDropdown from "../AddToCart/MainCartPopover"
 
 export default function Header() {
     return (
