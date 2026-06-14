@@ -10,7 +10,7 @@ import {
 export default function Header() {
     return (
         <header className="w-full bg-muted/90 backdrop-blur-md border-b border-border/80 px-6 py-4 flex items-center justify-between sticky top-0 z-40 select-none transition-colors duration-200">
-            <div className="max-w-7xl w-full mx-auto flex items-center justify-between gap-4">
+            <div className="container w-full mx-auto flex items-center justify-between gap-4">
 
                 {/* Left Side: Brand Logo & Links */}
                 <div className="flex items-center gap-8 shrink-0">

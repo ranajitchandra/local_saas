@@ -1,12 +1,14 @@
 
 import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation } from "swiper/modules"
 import { Shirt, ArrowRight } from "lucide-react"
 import { ProductCard } from "./ProductCard"
-
+import { SwiperNavigation } from "./SwiperNavigation"
 import "swiper/css"
+import type { FashionProduct } from "@/types/product"
 
 export function FashionCategory() {
-  const products = [
+  const products: FashionProduct[] = [
     {
       id: "f-1",
       name: "Velocity Running Shoes",
@@ -63,15 +65,24 @@ export function FashionCategory() {
           </div>
         </div>
 
-        <a href="#" className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline group">
-          Shop Fashion 
-          <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-        </a>
+        <div className="flex items-center gap-3">
+          <SwiperNavigation prevElClass="fashion-prev" nextElClass="fashion-next" />
+          <div className="h-4 w-px bg-teal-100/50" />
+          <a href="#" className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline group">
+            Shop Fashion 
+            <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+          </a>
+        </div>
       </div>
 
       {/* Swiper Slider Wrapper */}
       <div className="w-full py-2">
         <Swiper
+          modules={[Navigation]}
+          navigation={{
+            prevEl: ".fashion-prev",
+            nextEl: ".fashion-next",
+          }}
           spaceBetween={16}
           slidesPerView={1.2}
           breakpoints={{

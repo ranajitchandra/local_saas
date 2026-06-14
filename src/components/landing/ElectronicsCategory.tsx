@@ -1,13 +1,13 @@
-import React from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation } from "swiper/modules"
 import { Monitor, ArrowRight } from "lucide-react"
 import { ProductCard } from "./ProductCard"
-
-// Import Swiper styles
+import { SwiperNavigation } from "./SwiperNavigation"
 import "swiper/css"
+import type { ElectronicsProduct } from "@/types/product"
 
 export function ElectronicsCategory() {
-  const products = [
+  const products: ElectronicsProduct[] = [
     {
       id: "e-1",
       name: "Noise Cancelling Pro",
@@ -64,15 +64,24 @@ export function ElectronicsCategory() {
           </div>
         </div>
 
-        <a href="#" className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline group">
-          View All Tech 
-          <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-        </a>
+        <div className="flex items-center gap-3">
+          <SwiperNavigation prevElClass="electronics-prev" nextElClass="electronics-next" />
+          <div className="h-4 w-px bg-teal-100/50" />
+          <a href="#" className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline group">
+            View All Tech 
+            <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+          </a>
+        </div>
       </div>
 
       {/* Swiper Slider Wrapper */}
       <div className="w-full py-2">
         <Swiper
+          modules={[Navigation]}
+          navigation={{
+            prevEl: ".electronics-prev",
+            nextEl: ".electronics-next",
+          }}
           spaceBetween={16}
           slidesPerView={1.2}
           breakpoints={{

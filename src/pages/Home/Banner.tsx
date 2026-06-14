@@ -1,8 +1,8 @@
 // Landing Banner Component
 export default function Banner() {
     return (
-        <section className="w-full bg-muted/30 py-12 md:py-16 px-6 relative overflow-hidden select-none transition-colors duration-200">
-            <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-center">
+        <section className="w-full bg-muted/30 py-12 md:py-16 px-6 lg:px-8 relative overflow-hidden select-none transition-colors duration-200">
+            <div className="grid md:grid-cols-12 gap-8 items-center">
 
                 {/* Left Side Info Panel */}
                 <div className="md:col-span-7 flex flex-col items-start text-left space-y-6">
@@ -31,9 +31,9 @@ export default function Banner() {
 
                 {/* Right Side Mock Display Image Panel */}
                 <div className="md:col-span-5 flex justify-center items-center">
-                    <div className="relative overflow-hidden rounded-2xl w-full max-w-[420px] aspect-[4/3] md:aspect-square shadow-xl shadow-primary/5 border border-border/50 bg-[#032723]">
+                    <div className="relative overflow-hidden rounded-2xl w-full max-w-105 aspect-4/3 md:aspect-square shadow-xl shadow-primary/5 border border-border/50 bg-[#032723]">
                         <img
-                            src="/src/assets/hero.png"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBInFNo3r4GcmWotCnmjeAsFIJAI7bCIkXZt8GqQNlZ75hVhedA-38XKLC5TNYB3hojMl1doJnerv5tn2iiN963xMG3IVSwR-YuWz_3vfM1wPp4CmYJT-cD88u7--OBvNpeZJNm5zQFhZYFIDmz9stP2ctddjkr0SgonbReRywD-0lSnXlFExu3Uu-JFrk-k7SQtwPJQos5QvN69v2dC5t5UAgZ2Za8Ihu3tDvlArsy4XmgZhTfpddk9PbDfWE9mF7PnYbqjcKoQeA"
                             alt="Telemetry Organic Products"
                             className="w-full h-full object-cover select-none pointer-events-none"
                         />
