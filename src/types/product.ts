@@ -5,25 +5,39 @@ export type GroceryCategoryType = "Produce" | "Dairy" | "Bakery" | "Beverages";
 
 // Generic Product interface
 export interface Product {
-  id: string;
-  name: string;
-  category: ElectronicsCategoryType | FashionCategoryType | GroceryCategoryType;
-  rating: number;
-  price: string;
-  image: string;
-  reviewsCount?: number;
-  unit?: string;
+    id: string;
+    name: string;
+    category: ElectronicsCategoryType | FashionCategoryType | GroceryCategoryType;
+    rating: number;
+    price: string;
+    image: string;
+    reviewsCount?: number;
+    unit?: string;
 }
 
 // Category-specific product interfaces
 export interface ElectronicsProduct extends Product {
-  category: ElectronicsCategoryType;
+    category: ElectronicsCategoryType;
 }
 
 export interface FashionProduct extends Product {
-  category: FashionCategoryType;
+    category: FashionCategoryType;
 }
 
 export interface GroceryProduct extends Product {
-  category: GroceryCategoryType;
+    category: GroceryCategoryType;
 }
+
+// types/featured-product.ts
+
+export type FeaturedProduct = {
+    id: string;
+    name: string;
+    category: string;
+    price: number;
+    oldPrice?: number;
+    rating: number;
+    reviews: number;
+    image: string;
+    badge?: string;
+};
