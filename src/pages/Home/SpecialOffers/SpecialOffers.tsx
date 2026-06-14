@@ -40,7 +40,7 @@ export default function SpecialOffers() {
 
     return (
         <section className="bg-background py-16">
-            <div className="px-4">
+            <div className="md:px-4">
                 <h2 className="mb-10 text-4xl font-bold text-foreground">
                     Special Offers For You
                 </h2>
@@ -61,7 +61,7 @@ export default function SpecialOffers() {
                                 {featuredOffer.subtitle}
                             </p>
 
-                            <h3 className="mb-4 text-4xl font-bold leading-tight">
+                            <h3 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
                                 {featuredOffer.title}
                             </h3>
 
@@ -91,7 +91,7 @@ export default function SpecialOffers() {
                                 <div className="absolute inset-0 bg-black/50" />
 
                                 <div className="absolute left-6 top-1/2 -translate-y-1/2 text-white">
-                                    <h3 className="mb-2 text-2xl font-bold">
+                                    <h3 className="mb-2 text-xl md:text-2xl font-bold">
                                         {offer.title}
                                     </h3>
 
@@ -99,7 +99,7 @@ export default function SpecialOffers() {
                                         {offer.subtitle}
                                     </p>
 
-                                    <button className="font-medium text-secondary hover:text-secondary/80">
+                                    <button className="font-medium text-sm text-secondary hover:text-secondary/80">
                                         {offer.buttonText} →
                                     </button>
                                 </div>

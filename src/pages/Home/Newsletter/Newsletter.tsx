@@ -3,11 +3,11 @@
 export default function Newsletter() {
     return (
         <section className="pb-16">
-            <div className="px-4">
-                <div className="rounded-[2rem] bg-primary px-8 py-10 text-primary-foreground lg:px-12">
+            <div className="md:px-4">
+                <div className="rounded-[2rem] bg-primary  px-5 py-7 md:px-8 md:py-10 text-primary-foreground lg:px-12">
                     <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
                         <div>
-                            <h2 className="mb-4 text-4xl font-bold">
+                            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold">
                                 Ready to start shopping?
                             </h2>
 
@@ -22,10 +22,10 @@ export default function Newsletter() {
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
-                                    className="h-14 flex-1 rounded-xl border-0 bg-white px-4 text-black outline-none"
+                                    className="h-14 flex-1 rounded-xl border-0 bg-white p-2.5 lg:p-4 text-black outline-none"
                                 />
 
-                                <button className="h-14 rounded-xl bg-white px-8 font-semibold text-primary">
+                                <button className="rounded-xl bg-white p-2.5 lg:p4   font-semibold text-primary">
                                     Subscribe
                                 </button>
                             </div>
