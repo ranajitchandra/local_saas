@@ -4,6 +4,10 @@ import { NavLink } from "react-router";
 
 const navLinks = [
     {
+        label: "Home",
+        path: "/",
+    },
+    {
         label: "Marketplace",
         path: "/marketplace",
     },

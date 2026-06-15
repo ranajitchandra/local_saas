@@ -24,7 +24,7 @@ export function MainLayout() {
         <div className="quickmart-theme min-h-screen w-screen bg-background text-foreground transition-colors duration-200 flex flex-col">
             <Header />
             {/* Structural outlet block to support potential child subroutes */}
-            <div className="container mx-auto flex-1 bg-background text-foreground">
+            <div className="container mx-auto flex-1 bg-background text-foreground px-6">
                 <Outlet />
             </div>
             <Footer />
