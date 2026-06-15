@@ -1,12 +1,25 @@
-import {
-    ChevronDown,
-    Search,
-    MapPin,
-    Heart,
-    
-    User
-} from "lucide-react"
-import CartDropdown from "../AddToCart/MainCartPopover"
+import { Search, MapPin, Heart, User } from "lucide-react";
+import CartDropdown from "../AddToCart/MainCartPopover";
+import { NavLink } from "react-router";
+
+const navLinks = [
+    {
+        label: "Marketplace",
+        path: "/marketplace",
+    },
+    {
+        label: "Promotions",
+        path: "/promotions",
+    },
+    {
+        label: "Vendors",
+        path: "/vendors",
+    },
+    {
+        label: "Deals",
+        path: "/deals",
+    },
+];
 
 export default function Header() {
     return (
@@ -19,12 +32,18 @@ export default function Header() {
                         QuickMart
                     </span>
                     <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-foreground/80">
-                        <button className="flex items-center gap-1 hover:text-primary transition-colors cursor-pointer">
-                            Categories <ChevronDown className="h-4 w-4" />
-                        </button>
-                        <a href="#" className="hover:text-primary transition-colors">Marketplace</a>
-                        <a href="#" className="hover:text-primary transition-colors">Vendors</a>
-                        <a href="#" className="hover:text-primary transition-colors">Deals</a>
+                        {navLinks.map((item) => (
+                            <NavLink
+                                key={item.label}
+                                to={item.path}
+                                className={({ isActive }) =>
+                                    `transition-colors hover:text-primary ${isActive ? "text-primary" : ""
+                                    }`
+                                }
+                            >
+                                {item.label}
+                            </NavLink>
+                        ))}
                     </nav>
                 </div>
 
@@ -38,9 +57,8 @@ export default function Header() {
                     <Search className="absolute right-4 top-1/2 -translate-y-1/2 h-4.5 w-4.5 text-foreground/60" />
                 </div>
 
-                {/* Right Side: Account, Wishlist, Cart & Location */}
+                {/* Right Side */}
                 <div className="flex items-center gap-6 shrink-0">
-                    {/* Location details */}
                     <div className="hidden sm:flex items-center gap-1.5 text-left text-foreground/80 leading-tight">
                         <MapPin className="h-5 w-5 text-primary transition-colors" />
                         <div className="text-[11px] font-semibold">
@@ -48,20 +66,14 @@ export default function Header() {
                         </div>
                     </div>
 
-                    {/* Heart icon */}
                     <button className="text-foreground hover:text-red-500 transition-colors relative cursor-pointer">
                         <Heart className="h-5.5 w-5.5" />
                     </button>
 
-                    {/* Shopping Cart icon with badge */}
                     <button className="text-foreground hover:text-primary transition-colors relative cursor-pointer">
                         <CartDropdown />
-                        <span className="absolute -top-1 -right-1.5 bg-primary text-primary-foreground text-[9px] font-bold h-4 w-4 rounded-full flex items-center justify-center border border-background transition-colors">
-                            3
-                        </span>
                     </button>
 
-                    {/* User profile avatar icon */}
                     <button className="text-foreground hover:text-primary transition-colors cursor-pointer">
                         <User className="h-5.5 w-5.5" />
                     </button>
@@ -69,5 +81,5 @@ export default function Header() {
 
             </div>
         </header>
-    )
+    );
 }
