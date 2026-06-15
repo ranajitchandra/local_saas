@@ -97,11 +97,11 @@ export default function CartDropdown() {
                 <PopoverContent
                     align="end"
                     sideOffset={16}
-                    className="p-0 w-[95vw] sm:w-150 lg:w-240 max-w-[95vw] border-border bg-background shadow-2xl rounded-xl overflow-hidden"
+                    className="p-0 w-[95vw] sm:w-150 lg:w-240 max-w-[95vw] max-h-[92vh] border-border bg-background shadow-2xl rounded-xl overflow-hidden"
                 >
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                         {/* ════ MOBILE LAYOUT (<lg) ════ */}
-                        <div className="flex flex-col lg:hidden max-h-[92vh] overflow-y-auto">
+                        <div className="flex max-h-[92vh] min-h-0 flex-col overflow-hidden lg:hidden">
                             {/* Header */}
                             <div className="px-4 pt-4 pb-2 sticky top-0 bg-background z-10 border-b border-border">
                                 <h2 className="text-xl font-bold text-foreground">
@@ -113,7 +113,7 @@ export default function CartDropdown() {
                             </div>
 
                             {/* Content */}
-                            <div className="p-4 space-y-4">
+                            <div className="min-h-0 overflow-y-auto p-4 space-y-4">
                                 {/* Cart Stats */}
                                 <div className="flex items-center justify-between text-xs">
                                     <span className="px-3 py-1 rounded-md bg-muted text-muted-foreground font-semibold tracking-wide">
@@ -129,12 +129,14 @@ export default function CartDropdown() {
                                 </div>
 
                                 {/* Cart Items */}
-                                <CartItems
-                                    items={cartItems}
-                                    onUpdateQty={updateQty}
-                                    onRemove={removeItem}
-                                    compact
-                                />
+                                <div className="max-h-[34vh] overflow-y-auto pr-1 sm:max-h-[40vh] md:max-h-[46vh]">
+                                    <CartItems
+                                        items={cartItems}
+                                        onUpdateQty={updateQty}
+                                        onRemove={removeItem}
+                                        compact
+                                    />
+                                </div>
 
                                 {/* Payment Section */}
                                 <div>
@@ -176,11 +178,10 @@ export default function CartDropdown() {
 
                         {/* ════ DESKTOP LAYOUT (lg+) ════ */}
                         <div
-                            className="hidden lg:grid lg:grid-cols-[1fr_320px]"
-                            style={{ maxHeight: "90vh" }}
+                            className="hidden h-[90vh] max-h-[760px] min-h-0 lg:grid lg:grid-cols-[1fr_320px]"
                         >
                             {/* LEFT COLUMN - Cart Items & Payment */}
-                            <div className="p-5 bg-background flex flex-col overflow-hidden">
+                            <div className="p-5 bg-background flex min-h-0 flex-col overflow-hidden">
                                 {/* Header */}
                                 <div className="mb-4">
                                     <h2 className="text-2xl font-bold text-foreground">
@@ -206,7 +207,7 @@ export default function CartDropdown() {
                                 </div>
 
                                 {/* Scrollable Cart Items */}
-                                <div className="overflow-y-auto flex-1 pr-1">
+                                <div className="min-h-0 flex-1 overflow-y-auto pr-1">
                                     <CartItems
                                         items={cartItems}
                                         onUpdateQty={updateQty}
