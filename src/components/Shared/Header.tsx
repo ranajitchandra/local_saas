@@ -7,6 +7,7 @@ import {
     Home,
     Tag,
 } from "lucide-react";
+import { useState } from "react";
 import { NavLink } from "react-router";
 
 import CartDropdown from "../AddToCart/MainCartPopover";
@@ -15,7 +16,6 @@ import {
     Sheet,
     SheetContent,
     SheetTrigger,
-    SheetClose,
 } from "@/components/ui/sheet";
 
 const navLinks = [
@@ -32,6 +32,8 @@ const navLinks = [
 ];
 
 export default function Header() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     return (
         <header className="w-full bg-background/90 backdrop-blur-md border-b border-border sticky top-0 z-40">
             <div className="container mx-auto flex items-center justify-between gap-4 px-6 py-4">
@@ -40,7 +42,7 @@ export default function Header() {
                 <div className="flex items-center gap-4">
 
                     {/* Mobile Sidebar */}
-                    <Sheet>
+                    <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                         <SheetTrigger asChild>
                             <button className="lg:hidden text-foreground hover:text-primary transition-colors">
                                 <Menu className="h-6 w-6" />
@@ -69,20 +71,21 @@ export default function Header() {
                                         const Icon = item.icon;
 
                                         return (
-                                            <SheetClose asChild key={item.path}>
-                                                <NavLink
-                                                    to={item.path}
-                                                    className={({ isActive }) =>
-                                                        `w-full flex items-center gap-3 rounded-xl py-3 text-sm font-medium transition-all duration-200 ${isActive
-                                                            ? "bg-primary text-primary-foreground"
-                                                            : "text-foreground hover:bg-muted"
-                                                        }`
-                                                    }
-                                                >
-                                                    <Icon className="h-5 w-5" />
-                                                    {item.label}
-                                                </NavLink>
-                                            </SheetClose>
+                                            <NavLink
+                                                key={item.path}
+                                                to={item.path}
+                                                end={item.path === "/"}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className={({ isActive }) =>
+                                                    `w-full flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${isActive
+                                                        ? "bg-primary text-primary-foreground"
+                                                        : "text-foreground hover:bg-muted"
+                                                    }`
+                                                }
+                                            >
+                                                <Icon className="h-5 w-5" />
+                                                {item.label}
+                                            </NavLink>
                                         );
                                     })}
                                 </nav>
@@ -104,6 +107,7 @@ export default function Header() {
                             <NavLink
                                 key={item.label}
                                 to={item.path}
+                                end={item.path === "/"}
                                 className={({ isActive }) =>
                                     `transition-colors hover:text-primary ${isActive
                                         ? "text-primary"

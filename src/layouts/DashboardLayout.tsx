@@ -4,7 +4,7 @@ import { LayoutDashboard, BarChart3, Users, CreditCard, Settings } from "lucide-
 
 // Import custom sub-components
 import { Sidebar } from "@/components/layout/Sidebar"
-import { Header } from "@/components/layout/Header"
+import { Header } from "@/components/layout/DashboardHeader"
 import { MobileDrawer } from "@/components/layout/MobileDrawer"
 import { SearchDialog } from "@/components/layout/SearchDialog"
 
