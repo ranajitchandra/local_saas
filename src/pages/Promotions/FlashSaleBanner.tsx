@@ -133,7 +133,7 @@ export default function FlashSaleBanner() {
                         <div className="flex justify-center lg:justify-end">
                             <div className="overflow-hidden rounded-3xl bg-black shadow-[0_30px_80px_rgba(0,0,0,0.4)]">
                                 <img
-                                    src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900&q=80"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpoLyMYU1c3IxQAaPMPT7yWeobnt_IGbgr5TBJ89bFg1is631vlTHwlaU5Ljg60-i09MKxh3UU63fpPzAIRSyojKsS7l2dAWiZAGHFV4dKu8J-KECSwlpkisIg5qW7xnEHiJY8TJbblr_shlAz_7uMs9x14lpy8sH8Y62jEwD3yPLVM3N8DqheqzlSjUPI9HdH8ch1X59AbWs4Svq6d37YMcCNyAPtaPvzorSjaccAERd-J1L-ppEFqfRhT8wLB1bkCn5t6F61ZDQ"
                                     alt="Laptop"
                                     className="h-[340px] w-full max-w-[420px] object-cover lg:h-[420px]"
                                 />

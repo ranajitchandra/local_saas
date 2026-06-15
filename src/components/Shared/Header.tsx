@@ -8,7 +8,7 @@ import {
     Tag,
 } from "lucide-react";
 import { useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 import CartDropdown from "../AddToCart/MainCartPopover";
 
@@ -154,9 +154,11 @@ export default function Header() {
                     </div>
 
                     {/* User */}
-                    <button className="text-foreground hover:text-primary transition-colors">
-                        <User className="h-5 w-5" />
-                    </button>
+                    <Link to="/profile">
+                        <button className="text-foreground hover:text-primary transition-colors">
+                            <User className="h-5 w-5" />
+                        </button>
+                    </Link>
                 </div>
             </div>
         </header>
