@@ -41,3 +41,13 @@ export type FeaturedProduct = {
     image: string;
     badge?: string;
 };
+
+export interface DealProduct {
+    id: number;
+    category: string;
+    title: string;
+    image: string;
+    discount: number;
+    price: number;
+    oldPrice: number;
+}

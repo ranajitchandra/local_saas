@@ -1,59 +1,80 @@
-import { useState } from "react";
+import type { CartItem } from "@/types/cart.types";
+import {
+    createContext,
+    createElement,
+    useContext,
+    useMemo,
+    useState,
+    type ReactNode,
+} from "react";
 
-const initialCartItems = [
-  {
-    id: 1,
-    name: "Pro Runner X1",
-    details: "Size: 42 | Color: Aurora Teal",
-    price: 129,
-    qty: 1,
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
-  },
-  {
-    id: 2,
-    name: "CyberPack 2.0",
-    details: "Capacity: 25L | Material: Cordura",
-    price: 85,
-    qty: 1,
-    image: "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=400",
-  },
-];
+type AddCartItem = Omit<CartItem, "qty"> & {
+    qty?: number;
+};
+
+interface CartContextValue {
+    cartItems: CartItem[];
+    addItem: (item: AddCartItem) => void;
+    updateQty: (id: CartItem["id"], qty: number) => void;
+    removeItem: (id: CartItem["id"]) => void;
+    clearCart: () => void;
+}
+
+const CartContext = createContext<CartContextValue | null>(null);
+
+export function CartProvider({ children }: { children: ReactNode }) {
+    const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+    const addItem = (item: AddCartItem) => {
+        setCartItems((prev) => {
+            const existingItem = prev.find((cartItem) => cartItem.id === item.id);
+
+            if (existingItem) {
+                return prev.map((cartItem) =>
+                    cartItem.id === item.id
+                        ? { ...cartItem, qty: cartItem.qty + (item.qty ?? 1) }
+                        : cartItem
+                );
+            }
+
+            return [...prev, { ...item, qty: item.qty ?? 1 }];
+        });
+    };
+
+    const updateQty = (id: CartItem["id"], qty: number) => {
+        setCartItems((prev) =>
+            prev.map((item) =>
+                item.id === id ? { ...item, qty: Math.max(1, qty) } : item
+            )
+        );
+    };
+
+    const removeItem = (id: CartItem["id"]) => {
+        setCartItems((prev) => prev.filter((item) => item.id !== id));
+    };
+
+    const clearCart = () => setCartItems([]);
+
+    const value = useMemo(
+        () => ({
+            cartItems,
+            addItem,
+            updateQty,
+            removeItem,
+            clearCart,
+        }),
+        [cartItems]
+    );
+
+    return createElement(CartContext.Provider, { value }, children);
+}
 
 export function useCart() {
-  const [cartItems, setCartItems] = useState(initialCartItems);
+    const cart = useContext(CartContext);
 
-  const updateQty = (id: number, delta: number) => {
-    setCartItems(prev =>
-      prev.map(item =>
-        item.id === id
-          ? { ...item, qty: Math.max(1, item.qty + delta) }
-          : item
-      )
-    );
-  };
+    if (!cart) {
+        throw new Error("useCart must be used inside CartProvider");
+    }
 
-  const removeItem = (id: number) => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
-  };
-
-  const clearCart = () => setCartItems([]);
-
-  const subtotal = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
-  const tax = +(subtotal * 0.05).toFixed(2);
-  const discount = 20;
-  const total = subtotal + tax - discount;
-  const itemCount = cartItems.reduce((s, i) => s + i.qty, 0);
-
-  return {
-    cartItems,
-    setCartItems,
-    updateQty,
-    removeItem,
-    clearCart,
-    subtotal,
-    tax,
-    discount,
-    total,
-    itemCount,
-  };
+    return cart;
 }

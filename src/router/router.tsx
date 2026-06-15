@@ -6,6 +6,7 @@ import { Dashboard } from "../pages/Dashboard"
 import { Login } from "../pages/Login"
 import { Register } from "../pages/Register"
 import HomePage from "@/pages/Home/HomePage"
+import PromotionPage from "@/pages/Promotions/PromotionPage"
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,14 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <HomePage />
+            },
+            {
+                path: "promotions",
+                element: <PromotionPage />
+            },
+            {
+                path: "category-item/:id",
+                element: <PromotionPage />
             },
         ]
     },

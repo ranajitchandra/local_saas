@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Heart, ShoppingCart, Star } from "lucide-react"
+import { useCart } from "@/hooks/useCart"
 
 export interface Product {
   id: string
@@ -7,7 +8,8 @@ export interface Product {
   category: string
   rating: number
   reviewsCount?: number
-  price: string
+  reviews?: number
+  price: string | number
   unit?: string
   image: string
 }
@@ -18,6 +20,22 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const [isWishlisted, setIsWishlisted] = useState(false)
+  const { addItem } = useCart()
+  const formattedPrice = typeof product.price === "number" ? `$${product.price.toFixed(2)}` : product.price
+  const numericPrice = typeof product.price === "number"
+    ? product.price
+    : Number(product.price.replace(/[^0-9.]/g, ""))
+  const reviewsCount = product.reviewsCount ?? product.reviews
+
+  const handleAddToCart = () => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      details: product.unit ? `${product.category} | Unit: ${product.unit}` : product.category,
+      price: Number.isFinite(numericPrice) ? numericPrice : 0,
+      image: product.image,
+    })
+  }
 
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-teal-100/50 bg-card hover:border-teal-300 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 flex flex-col h-full">
@@ -71,9 +89,9 @@ export function ProductCard({ product }: ProductCardProps) {
             <span className="text-[11px] font-bold text-foreground mt-0.5">
               {product.rating.toFixed(1)}
             </span>
-            {product.reviewsCount !== undefined && (
+            {reviewsCount !== undefined && (
               <span className="text-[10px] text-muted-foreground mt-0.5">
-                ({product.reviewsCount})
+                ({reviewsCount})
               </span>
             )}
           </div>
@@ -83,7 +101,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="mt-4 flex items-center justify-between pt-1">
           <div>
             <span className="text-base font-extrabold text-[#0a685c]">
-              {product.price}
+              {formattedPrice}
             </span>
             {product.unit && (
               <span className="text-[10px] text-muted-foreground font-medium">
@@ -92,7 +110,12 @@ export function ProductCard({ product }: ProductCardProps) {
             )}
           </div>
 
-          <button className="h-8 w-8 rounded-lg bg-primary hover:bg-[#08534a] active:translate-y-px text-primary-foreground flex items-center justify-center shadow-sm transition-all cursor-pointer">
+          <button
+            type="button"
+            onClick={handleAddToCart}
+            aria-label={`Add ${product.name} to cart`}
+            className="h-8 w-8 rounded-lg bg-primary hover:bg-[#08534a] active:translate-y-px text-primary-foreground flex items-center justify-center shadow-sm transition-all cursor-pointer"
+          >
             <ShoppingCart className="h-4 w-4" />
           </button>
         </div>

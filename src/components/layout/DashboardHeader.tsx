@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Menu, Search, Command, Sun, Moon, Bell, ChevronDown, User, Settings, LogOut } from "lucide-react"
 
 interface Notification {

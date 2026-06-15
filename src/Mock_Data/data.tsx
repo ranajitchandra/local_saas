@@ -1,9 +1,10 @@
 
 
+import type { CartItem } from "@/types/cart.types";
 import type { Category } from "@/types/category";
 import type { FeatureItem } from "@/types/features";
 import type { Offer } from "@/types/offer";
-import type { ElectronicsProduct, FashionProduct, FeaturedProduct, GroceryProduct } from "@/types/product";
+import type { DealProduct, ElectronicsProduct, FashionProduct, FeaturedProduct, GroceryProduct } from "@/types/product";
 import { ShoppingCart, Cross, Monitor, Shirt, House, PawPrint, Smartphone, BookOpen, Baby, Dumbbell, Gamepad2, Sofa, Car, Sparkles, UtensilsCrossed, Flower2, Watch, Briefcase, Ticket, Gem } from "lucide-react";
 import { Zap, ShieldCheck, Lock, Headphones } from "lucide-react";
 
@@ -432,6 +433,149 @@ export const features: FeatureItem[] = [
     },
 ];
 
+export const initialCartItems: CartItem[] = [
+    {
+        id: 1,
+        name: "Pro Runner X1",
+        details: "Size: 42 | Color: Aurora Teal",
+        price: 129,
+        qty: 1,
+        image:
+            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+    },
+    {
+        id: 2,
+        name: "CyberPack 2.0",
+        details: "Capacity: 25L | Material: Cordura",
+        price: 85,
+        qty: 1,
+        image:
+            "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=400",
+    },
+];
+
+export const browseCategoryItems = [
+    {
+        id: 1,
+        title: "High-End Electronics",
+        subtitle: "TECH EXCLUSIVE",
+        description:
+            "Up to 45% off professional workstations and peripherals.",
+        image:
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200",
+    },
+    {
+        id: 2,
+        title: "Luxury Apparel",
+        subtitle: "SEASONAL DEALS",
+        description:
+            "New arrivals in curated fashion with membership discounts.",
+        image:
+            "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200",
+    },
+    {
+        id: 3,
+        title: "Smart Living",
+        subtitle: "HOME ESSENTIALS",
+        description:
+            "Upgrade your space with intelligent home automation gear.",
+        image:
+            "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200",
+    },
+    {
+        id: 4,
+        title: "High-End Electronics",
+        subtitle: "TECH EXCLUSIVE",
+        description:
+            "Up to 45% off professional workstations and peripherals.",
+        image:
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200",
+    },
+    {
+        id: 5,
+        title: "Luxury Apparel",
+        subtitle: "SEASONAL DEALS",
+        description:
+            "New arrivals in curated fashion with membership discounts.",
+        image:
+            "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200",
+    },
+    {
+        id: 6,
+        title: "Smart Living",
+        subtitle: "HOME ESSENTIALS",
+        description:
+            "Upgrade your space with intelligent home automation gear.",
+        image:
+            "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200",
+    },
+];
+
+export const topDeals: DealProduct[] = [
+    {
+        id: 1,
+        category: "AUDIO ENGINEERING",
+        title: "Pro-Series Wireless ANC",
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+        discount: 25,
+        price: 299,
+        oldPrice: 399,
+    },
+    {
+        id: 2,
+        category: "TIMEPIECES",
+        title: "Vantage Chronograph",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
+        discount: 15,
+        price: 185,
+        oldPrice: 220,
+    },
+    {
+        id: 3,
+        category: "AUDIO TECH",
+        title: "Signature Studio Monitor",
+        image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&q=80",
+        discount: 40,
+        price: 149,
+        oldPrice: 249,
+    },
+    {
+        id: 4,
+        category: "PHOTOGRAPHY",
+        title: "Instant Capture Pro",
+        image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80",
+        discount: 10,
+        price: 89,
+        oldPrice: 99,
+    },
+    {
+        id: 5,
+        category: "COMPUTING",
+        title: "UltraBook X15",
+        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
+        discount: 30,
+        price: 899,
+        oldPrice: 1299,
+    },
+    {
+        id: 6,
+        category: "GAMING",
+        title: "RGB Mechanical Keyboard",
+        image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=800&q=80",
+        discount: 20,
+        price: 79,
+        oldPrice: 99,
+    },
+    {
+        id: 7,
+        category: "MOBILE TECH",
+        title: "Flagship Pro Smartphone",
+        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
+        discount: 18,
+        price: 699,
+        oldPrice: 849,
+    },
+];
 
 
 

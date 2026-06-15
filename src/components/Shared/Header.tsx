@@ -1,73 +1,166 @@
 import {
-    ChevronDown,
     Search,
     MapPin,
     Heart,
-    
-    User
-} from "lucide-react"
-import CartDropdown from "../AddToCart/MainCartPopover"
+    User,
+    Menu,
+    Home,
+    Tag,
+} from "lucide-react";
+import { useState } from "react";
+import { Link, NavLink } from "react-router";
+
+import CartDropdown from "../AddToCart/MainCartPopover";
+
+import {
+    Sheet,
+    SheetContent,
+    SheetTrigger,
+} from "@/components/ui/sheet";
+
+const navLinks = [
+    {
+        label: "Home",
+        path: "/",
+        icon: Home,
+    },
+    {
+        label: "Promotions",
+        path: "/promotions",
+        icon: Tag,
+    },
+];
 
 export default function Header() {
-    return (
-        <header className="w-full bg-muted/90 backdrop-blur-md border-b border-border/80 px-6 py-4 flex items-center justify-between sticky top-0 z-40 select-none transition-colors duration-200">
-            <div className="container w-full mx-auto flex items-center justify-between gap-4">
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-                {/* Left Side: Brand Logo & Links */}
-                <div className="flex items-center gap-8 shrink-0">
-                    <span className="text-2xl font-extrabold text-primary tracking-tight transition-colors">
+    return (
+        <header className="w-full bg-background/90 backdrop-blur-md border-b border-border sticky top-0 z-40">
+            <div className="container mx-auto flex items-center justify-between gap-4 px-6 py-4">
+
+                {/* Left Side */}
+                <div className="flex items-center gap-4">
+
+                    {/* Mobile Sidebar */}
+                    <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                        <SheetTrigger asChild>
+                            <button className="lg:hidden text-foreground hover:text-primary transition-colors">
+                                <Menu className="h-6 w-6" />
+                            </button>
+                        </SheetTrigger>
+
+                        <SheetContent
+                            side="left"
+                            className="quickmart-theme w-60! bg-background border-border text-foreground p-0"
+                        >
+                            {/* Sidebar Header */}
+                            <div className="bg-primary px-6 py-5">
+                                <h2 className="text-xl font-bold text-primary-foreground">
+                                    QuickMart
+                                </h2>
+
+                                <p className="mt-1 text-xs text-primary-foreground/80">
+                                    Smart shopping made easy
+                                </p>
+                            </div>
+
+                            {/* Sidebar Links */}
+                            <div className="p-4">
+                                <nav className="space-y-2">
+                                    {navLinks.map((item) => {
+                                        const Icon = item.icon;
+
+                                        return (
+                                            <NavLink
+                                                key={item.path}
+                                                to={item.path}
+                                                end={item.path === "/"}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className={({ isActive }) =>
+                                                    `w-full flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${isActive
+                                                        ? "bg-primary text-primary-foreground"
+                                                        : "text-foreground hover:bg-muted"
+                                                    }`
+                                                }
+                                            >
+                                                <Icon className="h-5 w-5" />
+                                                {item.label}
+                                            </NavLink>
+                                        );
+                                    })}
+                                </nav>
+                            </div>
+                        </SheetContent>
+                    </Sheet>
+
+                    {/* Logo */}
+                    <NavLink
+                        to="/"
+                        className="text-2xl font-extrabold text-primary tracking-tight"
+                    >
                         QuickMart
-                    </span>
-                    <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-foreground/80">
-                        <button className="flex items-center gap-1 hover:text-primary transition-colors cursor-pointer">
-                            Categories <ChevronDown className="h-4 w-4" />
-                        </button>
-                        <a href="#" className="hover:text-primary transition-colors">Marketplace</a>
-                        <a href="#" className="hover:text-primary transition-colors">Vendors</a>
-                        <a href="#" className="hover:text-primary transition-colors">Deals</a>
+                    </NavLink>
+
+                    {/* Desktop Navigation */}
+                    <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold">
+                        {navLinks.map((item) => (
+                            <NavLink
+                                key={item.label}
+                                to={item.path}
+                                end={item.path === "/"}
+                                className={({ isActive }) =>
+                                    `transition-colors hover:text-primary ${isActive
+                                        ? "text-primary"
+                                        : "text-foreground/80"
+                                    }`
+                                }
+                            >
+                                {item.label}
+                            </NavLink>
+                        ))}
                     </nav>
                 </div>
 
-                {/* Center: Search pill box */}
-                <div className="flex-1 max-w-xl mx-4 relative hidden md:block">
+                {/* Search */}
+                <div className="hidden md:block flex-1 max-w-xl mx-4 relative">
                     <input
                         type="text"
                         placeholder="Search for products, brands and more"
-                        className="w-full bg-card border border-border/70 hover:bg-card/80 text-sm px-5 py-2.5 pr-10 rounded-full placeholder-foreground/50 text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                        className=" w-full bg-card border border-border rounded-full px-5 py-2.5 pr-10 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                     />
-                    <Search className="absolute right-4 top-1/2 -translate-y-1/2 h-4.5 w-4.5 text-foreground/60" />
+
+                    <Search className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 </div>
 
-                {/* Right Side: Account, Wishlist, Cart & Location */}
-                <div className="flex items-center gap-6 shrink-0">
-                    {/* Location details */}
-                    <div className="hidden sm:flex items-center gap-1.5 text-left text-foreground/80 leading-tight">
-                        <MapPin className="h-5 w-5 text-primary transition-colors" />
-                        <div className="text-[11px] font-semibold">
-                            <div>New York</div>
-                        </div>
+                {/* Right Side */}
+                <div className="flex items-center gap-4 md:gap-6 shrink-0">
+
+                    {/* Location */}
+                    <div className="hidden sm:flex items-center gap-1.5 text-foreground/80">
+                        <MapPin className="h-5 w-5 text-primary" />
+                        <span className="text-xs font-semibold">
+                            New York
+                        </span>
                     </div>
 
-                    {/* Heart icon */}
-                    <button className="text-foreground hover:text-red-500 transition-colors relative cursor-pointer">
-                        <Heart className="h-5.5 w-5.5" />
+                    {/* Wishlist */}
+                    <button className="text-foreground hover:text-red-500 transition-colors">
+                        <Heart className="h-5 w-5" />
                     </button>
 
-                    {/* Shopping Cart icon with badge */}
-                    <button className="text-foreground hover:text-primary transition-colors relative cursor-pointer">
+                    {/* Cart */}
+                    <div className="text-foreground hover:text-primary transition-colors">
                         <CartDropdown />
-                        <span className="absolute -top-1 -right-1.5 bg-primary text-primary-foreground text-[9px] font-bold h-4 w-4 rounded-full flex items-center justify-center border border-background transition-colors">
-                            3
-                        </span>
-                    </button>
+                    </div>
 
-                    {/* User profile avatar icon */}
-                    <button className="text-foreground hover:text-primary transition-colors cursor-pointer">
-                        <User className="h-5.5 w-5.5" />
-                    </button>
+                    {/* User */}
+                    <Link to="/profile">
+                        <button className="text-foreground hover:text-primary transition-colors">
+                            <User className="h-5 w-5" />
+                        </button>
+                    </Link>
                 </div>
-
             </div>
         </header>
-    )
+    );
 }
