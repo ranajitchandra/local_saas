@@ -39,6 +39,10 @@ export const router = createBrowserRouter([
                 path: "promotions",
                 element: <PromotionPage />
             },
+            {
+                path: "category-item/:id",
+                element: <PromotionPage />
+            },
         ]
     },
     {
