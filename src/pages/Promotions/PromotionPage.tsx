@@ -1,5 +1,6 @@
 import { BrowseCategory } from "./BrowseCategory/BrowseCategory";
 import FlashSaleBanner from "./FlashSaleBanner";
+import { PromotionalNewsLetter } from "./PromotionalNewsLetter/PromotionalNewsLetter";
 import { TodayTopDeals } from "./TodayTopDeal/TodayTopDeals";
 
 
@@ -10,6 +11,7 @@ export default function PromotionPage() {
             <FlashSaleBanner />
             <BrowseCategory />
             <TodayTopDeals />
+            <PromotionalNewsLetter />
         </div>
     )
 }
