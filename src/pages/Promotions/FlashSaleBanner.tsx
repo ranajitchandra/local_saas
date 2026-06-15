@@ -45,7 +45,7 @@ export default function FlashSaleBanner() {
 
     return (
         <section className="quickmart-theme bg-background">
-            <div className="py-16">
+            <div className="w-full">
                 <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-r from-[#072f2c] via-[#0c3f39] to-[#114941] px-8 py-12 lg:px-14 lg:py-16">
                     {/* Glow */}
                     <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-primary/20 blur-[120px]" />
