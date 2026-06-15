@@ -1,7 +1,7 @@
 export type PaymentMethod = "card" | "cod";
 
 export interface CartItem {
-    id: number;
+    id: string | number;
     name: string;
     details: string;
     price: number;

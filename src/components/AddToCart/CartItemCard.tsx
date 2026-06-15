@@ -8,10 +8,10 @@ interface CartItemCardProps {
     item: CartItem;
     compact?: boolean;
     updateQty: (
-        id: number,
-        delta: number
+        id: CartItem["id"],
+        qty: number
     ) => void;
-    removeItem: (id: number) => void;
+    removeItem: (id: CartItem["id"]) => void;
 }
 
 export default function CartItemCard({
@@ -81,7 +81,7 @@ export default function CartItemCard({
                                 onClick={() =>
                                     updateQty(
                                         item.id,
-                                        -1
+                                        item.qty - 1
                                     )
                                 }
                                 className={`hover:bg-muted ${compact
@@ -112,7 +112,7 @@ export default function CartItemCard({
                                 onClick={() =>
                                     updateQty(
                                         item.id,
-                                        1
+                                        item.qty + 1
                                     )
                                 }
                                 className={`hover:bg-muted ${compact

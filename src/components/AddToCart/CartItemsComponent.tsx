@@ -4,8 +4,8 @@ import type { CartItem } from "./types";
 
 interface CartItemsProps {
     items: CartItem[];
-    onUpdateQty: (id: number, qty: number) => void;
-    onRemove: (id: number) => void;
+    onUpdateQty: (id: CartItem["id"], qty: number) => void;
+    onRemove: (id: CartItem["id"]) => void;
     compact?: boolean;
 }
 

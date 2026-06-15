@@ -1,11 +1,24 @@
 import type { DealProduct } from "@/types/product";
-import { Heart } from "lucide-react";
+import { useCart } from "@/hooks/useCart";
+import { Heart, ShoppingCart } from "lucide-react";
 
 interface DealCardProps {
     product: DealProduct;
 }
 
 export function DealCard({ product }: DealCardProps) {
+    const { addItem } = useCart();
+
+    const handleAddToCart = () => {
+        addItem({
+            id: `deal-${product.id}`,
+            name: product.title,
+            details: product.category,
+            price: product.price,
+            image: product.image,
+        });
+    };
+
     return (
         <article className="overflow-hidden rounded-2xl border border-border bg-card">
             <div className="relative">
@@ -43,7 +56,12 @@ export function DealCard({ product }: DealCardProps) {
                     </span>
                 </div>
 
-                <button className="mt-2 w-full rounded-lg border border-primary bg-background py-2.5 font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">
+                <button
+                    type="button"
+                    onClick={handleAddToCart}
+                    className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-primary bg-background py-2.5 font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground"
+                >
+                    <ShoppingCart className="h-4 w-4" />
                     Add to Cart
                 </button>
             </div>

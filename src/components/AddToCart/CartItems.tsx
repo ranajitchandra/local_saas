@@ -6,10 +6,10 @@ interface CartItemsProps {
     items: CartItem[];
     compact?: boolean;
     updateQty: (
-        id: number,
-        delta: number
+        id: CartItem["id"],
+        qty: number
     ) => void;
-    removeItem: (id: number) => void;
+    removeItem: (id: CartItem["id"]) => void;
 }
 
 export default function CartItems({

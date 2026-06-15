@@ -21,7 +21,7 @@ export type OrderFormValues = {
 
 /* ─── Cart Types ─────────────────────────────────────────── */
 export interface CartItem {
-    id: number;
+    id: string | number;
     name: string;
     details: string;
     price: number;

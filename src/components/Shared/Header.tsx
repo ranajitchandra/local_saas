@@ -8,20 +8,8 @@ const navLinks = [
         path: "/",
     },
     {
-        label: "Marketplace",
-        path: "/marketplace",
-    },
-    {
         label: "Promotions",
         path: "/promotions",
-    },
-    {
-        label: "Vendors",
-        path: "/vendors",
-    },
-    {
-        label: "Deals",
-        path: "/deals",
     },
 ];
 
@@ -74,9 +62,9 @@ export default function Header() {
                         <Heart className="h-5.5 w-5.5" />
                     </button>
 
-                    <button className="text-foreground hover:text-primary transition-colors relative cursor-pointer">
+                    <div className="text-foreground hover:text-primary transition-colors relative">
                         <CartDropdown />
-                    </button>
+                    </div>
 
                     <button className="text-foreground hover:text-primary transition-colors cursor-pointer">
                         <User className="h-5.5 w-5.5" />

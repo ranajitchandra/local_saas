@@ -1,4 +1,3 @@
-import React from "react"
 import { Outlet } from "react-router"
 import { Sparkles, Terminal, CheckCircle2 } from "lucide-react"
 

@@ -1,12 +1,12 @@
 import { ShoppingCart } from "lucide-react";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import type { PaymentMethod, OrderFormValues, CartItem, OrderPayload } from "./types";
+import type { PaymentMethod, OrderFormValues, OrderPayload } from "./types";
 
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { useCart } from "@/hooks/useCart";
 
 /* ─── Types & Constants ─────────────────────────────────────────── */
-import { INITIAL_CART_ITEMS, TAX_RATE, DISCOUNT_AMOUNT } from "./constants";
+import { TAX_RATE, DISCOUNT_AMOUNT } from "./constants";
 import { calculateSubtotal, calculateTax, calculateTotal, calculateItemCount } from "./helpers";
 
 /* ─── Sub-Components ─────────────────────────────────────────── */
@@ -19,12 +19,12 @@ import CartItems from "./CartItemsComponent";
 
 export default function CartDropdown() {
     /* ─────────────────── STATE ─────────────────── */
-    const [cartItems, setCartItems] = useState<CartItem[]>(INITIAL_CART_ITEMS);
+    const { cartItems, updateQty, removeItem, clearCart } = useCart();
 
     /* ─────────────────── CALCULATIONS ─────────────────── */
     const subtotal = calculateSubtotal(cartItems);
     const tax = calculateTax(subtotal, TAX_RATE);
-    const discount = DISCOUNT_AMOUNT;
+    const discount = subtotal > 0 ? Math.min(DISCOUNT_AMOUNT, subtotal) : 0;
     const total = calculateTotal(subtotal, tax, discount);
     const itemCount = calculateItemCount(cartItems);
 
@@ -46,22 +46,6 @@ export default function CartDropdown() {
     const paymentMethod = watch("paymentMethod");
 
     /* ─────────────────── HANDLERS ─────────────────── */
-    const updateQty = (id: number, qty: number) => {
-        setCartItems((prev) =>
-            prev.map((item) =>
-                item.id === id ? { ...item, qty: Math.max(1, qty) } : item
-            )
-        );
-    };
-
-    const removeItem = (id: number) => {
-        setCartItems((prev) => prev.filter((item) => item.id !== id));
-    };
-
-    const clearCart = () => {
-        setCartItems([]);
-    };
-
     const handlePaymentMethodChange = (method: PaymentMethod) => {
         setValue("paymentMethod", method, { shouldValidate: true });
     };
