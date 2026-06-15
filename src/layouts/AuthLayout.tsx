@@ -3,7 +3,7 @@ import { Sparkles, Terminal, CheckCircle2 } from "lucide-react"
 
 export function AuthLayout() {
   return (
-    <div className="quickmart-theme min-h-screen w-screen flex bg-background text-foreground font-sans transition-colors duration-200">
+    <div className="min-h-screen w-screen flex bg-background text-foreground font-sans transition-colors duration-200">
       
       {/* LEFT FORM PANEL (Centering Card and Forms) */}
       <div className="w-full lg:w-1/2 flex flex-col justify-between p-6 sm:p-10 relative z-10 bg-background/50 backdrop-blur-sm">

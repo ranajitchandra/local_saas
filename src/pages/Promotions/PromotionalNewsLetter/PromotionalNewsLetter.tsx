@@ -1,6 +1,6 @@
 export function PromotionalNewsLetter() {
     return (
-        <section className="quickmart-theme bg-primary rounded-2xl py-24 px-6">
+        <section className="bg-primary rounded-2xl py-24 px-6">
             <div className="mx-auto max-w-4xl text-center">
                 <h2 className="text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
                     Never miss a price drop again.

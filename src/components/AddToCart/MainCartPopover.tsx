@@ -81,7 +81,7 @@ export default function CartDropdown() {
 
     /* ─────────────────── RENDER ─────────────────── */
     return (
-        <div className="quickmart-theme">
+        <div>
             <Popover>
                 {/* Trigger Button */}
                 <PopoverTrigger asChild>
