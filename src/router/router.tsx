@@ -7,6 +7,12 @@ import { Login } from "../pages/Login"
 import { Register } from "../pages/Register"
 import HomePage from "@/pages/Home/HomePage"
 import PromotionPage from "@/pages/Promotions/PromotionPage"
+import ProfileLayout from "@/layouts/ProfileLayout"
+import PersonalInfo from "@/pages/ClientProfile/PersonalInfo"
+import OrderHistory from "@/pages/ClientProfile/OrderHistory"
+import Addresses from "@/pages/ClientProfile/Addresses"
+import PaymentMethods from "@/pages/ClientProfile/PaymentMethods"
+import SecurityPrivacy from "@/pages/ClientProfile/SecurityPrivacy"
 
 export const router = createBrowserRouter([
     {
@@ -43,6 +49,36 @@ export const router = createBrowserRouter([
                 path: "category-item/:id",
                 element: <PromotionPage />
             },
+            {
+                path: "/profile",
+                element: <ProfileLayout />,
+                children: [
+                    {
+                        index: true,
+                        element: <Navigate to="personal-info" replace />
+                    },
+                    {
+                        path: "personal-info",
+                        element: <PersonalInfo />,
+                    },
+                    {
+                        path: "order-history",
+                        element: <OrderHistory />,
+                    },
+                    {
+                        path: "addresses",
+                        element: <Addresses />,
+                    },
+                    {
+                        path: "payment-methods",
+                        element: <PaymentMethods />,
+                    },
+                    {
+                        path: "security-privacy",
+                        element: <SecurityPrivacy />,
+                    },
+                ],
+            }
         ]
     },
     {
