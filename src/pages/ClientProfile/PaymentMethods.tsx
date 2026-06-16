@@ -4,6 +4,8 @@ import {
     Banknote,
     Smartphone,
     Pencil,
+    Plus,
+    type LucideIcon,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -12,75 +14,140 @@ import type { PaymentMethodForm } from "@/types/clientProfile";
 import { useState } from "react";
 import PaymentMethodModal from "./Modal/PaymentMethodModal";
 
-const paymentMethods = [
+type PaymentMethodItem = PaymentMethodForm & {
+    id: number;
+    description: string;
+    icon: LucideIcon;
+};
+
+const getPaymentIcon = (provider: string) => {
+    const normalizedProvider = provider.toLowerCase();
+
+    if (normalizedProvider.includes("card")) {
+        return CreditCard;
+    }
+
+    if (
+        normalizedProvider.includes("cash") ||
+        normalizedProvider.includes("cod")
+    ) {
+        return Banknote;
+    }
+
+    if (
+        normalizedProvider.includes("mobile") ||
+        normalizedProvider.includes("bkash") ||
+        normalizedProvider.includes("nagad")
+    ) {
+        return Smartphone;
+    }
+
+    return Wallet;
+};
+
+const getPaymentDescription = (data: PaymentMethodForm) => {
+    if (data.accountNumber) {
+        return data.accountNumber;
+    }
+
+    return data.provider || "Payment method";
+};
+
+const initialPaymentMethods: PaymentMethodItem[] = [
     {
         id: 1,
         name: "Visa Card",
-        description: "**** **** **** 4242 • Expires 12/28",
-        active: true,
-        default: true,
+        provider: "Card",
+        accountNumber: "**** **** **** 4242 - Expires 12/28",
+        description: "**** **** **** 4242 - Expires 12/28",
+        isActive: true,
+        isDefault: true,
         icon: CreditCard,
     },
     {
         id: 2,
         name: "SSLCommerz",
+        provider: "Payment Gateway",
+        accountNumber: "",
         description: "Secure online payment gateway",
-        active: true,
+        isActive: true,
+        isDefault: false,
         icon: Wallet,
     },
     {
         id: 3,
         name: "Cash on Delivery",
+        provider: "Cash",
+        accountNumber: "",
         description: "Pay after receiving your order",
-        active: true,
+        isActive: true,
+        isDefault: false,
         icon: Banknote,
     },
     {
         id: 4,
         name: "bKash",
+        provider: "Mobile Banking",
+        accountNumber: "+880 17XXXXXX45",
         description: "+880 17XXXXXX45",
-        active: false,
+        isActive: false,
+        isDefault: false,
         icon: Smartphone,
     },
     {
         id: 5,
         name: "Nagad",
+        provider: "Mobile Banking",
+        accountNumber: "+880 18XXXXXX89",
         description: "+880 18XXXXXX89",
-        active: false,
+        isActive: false,
+        isDefault: false,
         icon: Smartphone,
     },
 ];
 
 export default function PaymentMethods() {
-
-
+    const [paymentMethods, setPaymentMethods] = useState(initialPaymentMethods);
     const [open, setOpen] = useState(false);
-
-    const [editingItem, setEditingItem] =
-        useState<PaymentMethodForm>();
+    const [editingItem, setEditingItem] = useState<PaymentMethodItem>();
 
     const handleAdd = () => {
         setEditingItem(undefined);
         setOpen(true);
     };
 
-    const handleEdit = (
-        item: PaymentMethodForm
-    ) => {
+    const handleEdit = (item: PaymentMethodItem) => {
         setEditingItem(item);
         setOpen(true);
     };
 
-    const handleSubmit = (
-        data: PaymentMethodForm
-    ) => {
+    const handleSubmit = (data: PaymentMethodForm) => {
         if (editingItem) {
-            console.log("Update", data);
-        } else {
-            console.log("Create", data);
+            setPaymentMethods((currentMethods) =>
+                currentMethods.map((method) =>
+                    method.id === editingItem.id
+                        ? {
+                            ...method,
+                            ...data,
+                            description: getPaymentDescription(data),
+                            icon: getPaymentIcon(data.provider),
+                        }
+                        : method
+                )
+            );
+            return;
         }
-    };
 
+        setPaymentMethods((currentMethods) => [
+            ...currentMethods,
+            {
+                ...data,
+                id: Date.now(),
+                description: getPaymentDescription(data),
+                icon: getPaymentIcon(data.provider),
+            },
+        ]);
+    };
 
     return (
         <>
@@ -96,7 +163,8 @@ export default function PaymentMethods() {
                         </p>
                     </div>
 
-                    <Button onClick={handleAdd}>
+                    <Button onClick={handleAdd} className="gap-2">
+                        <Plus size={16} />
                         Add
                     </Button>
                 </div>
@@ -121,7 +189,7 @@ export default function PaymentMethods() {
                                                 {method.name}
                                             </h3>
 
-                                            {method.default && (
+                                            {method.isDefault && (
                                                 <Badge>
                                                     Default
                                                 </Badge>
@@ -137,12 +205,12 @@ export default function PaymentMethods() {
                                 <div className="flex items-center gap-3">
                                     <Badge
                                         variant={
-                                            method.active
+                                            method.isActive
                                                 ? "default"
                                                 : "secondary"
                                         }
                                     >
-                                        {method.active
+                                        {method.isActive
                                             ? "Active"
                                             : "Inactive"}
                                     </Badge>
@@ -160,6 +228,7 @@ export default function PaymentMethods() {
                     })}
                 </div>
             </div>
+
             <PaymentMethodModal
                 open={open}
                 onOpenChange={setOpen}

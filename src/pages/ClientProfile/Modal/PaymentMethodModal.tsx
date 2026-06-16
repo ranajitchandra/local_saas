@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 
 import {
     Dialog,
@@ -43,10 +43,20 @@ export default function PaymentMethodModal({
         register,
         handleSubmit,
         reset,
-        watch,
         setValue,
+        control,
     } = useForm<PaymentMethodForm>({
         defaultValues,
+    });
+
+    const isActive = useWatch({
+        control,
+        name: "isActive",
+    });
+
+    const isDefault = useWatch({
+        control,
+        name: "isDefault",
     });
 
     useEffect(() => {
@@ -116,7 +126,7 @@ export default function PaymentMethodModal({
                         <span>Active</span>
 
                         <Switch
-                            checked={watch("isActive")}
+                            checked={isActive}
                             onCheckedChange={(value) =>
                                 setValue("isActive", value)
                             }
@@ -127,7 +137,7 @@ export default function PaymentMethodModal({
                         <span>Default Method</span>
 
                         <Switch
-                            checked={watch("isDefault")}
+                            checked={isDefault}
                             onCheckedChange={(value) =>
                                 setValue("isDefault", value)
                             }

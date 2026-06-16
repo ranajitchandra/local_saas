@@ -1,5 +1,5 @@
 
-import type { Order, PaymentMethod, UserProfile } from "@/types/clientProfile";
+import type { Order, UserProfile } from "@/types/clientProfile";
 
 export const user: UserProfile = {
     fullName: "Alex Harrison",
