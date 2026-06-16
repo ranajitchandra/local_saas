@@ -6,6 +6,7 @@ import {
     Menu,
     Home,
     Tag,
+    Handshake,
 } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router";
@@ -28,6 +29,11 @@ const navLinks = [
         label: "Promotions",
         path: "/promotions",
         icon: Tag,
+    },
+    {
+        label: "Vendor",
+        path: "/vendor",
+        icon: Handshake,
     },
 ];
 

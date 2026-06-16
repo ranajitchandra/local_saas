@@ -13,6 +13,7 @@ import OrderHistory from "@/pages/ClientProfile/OrderHistory"
 import Addresses from "@/pages/ClientProfile/Addresses"
 import PaymentMethods from "@/pages/ClientProfile/PaymentMethods"
 import SecurityPrivacy from "@/pages/ClientProfile/SecurityPrivacy"
+import VendorPage from "@/pages/Vendor/VendorPage"
 
 export const router = createBrowserRouter([
     {
@@ -46,8 +47,8 @@ export const router = createBrowserRouter([
                 element: <PromotionPage />
             },
             {
-                path: "category-item/:id",
-                element: <PromotionPage />
+                path: "vendor",
+                element: <VendorPage />
             },
             {
                 path: "/profile",
