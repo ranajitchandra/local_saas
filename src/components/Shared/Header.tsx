@@ -6,6 +6,7 @@ import {
     Menu,
     Home,
     Tag,
+    Handshake,
 } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router";
@@ -29,6 +30,11 @@ const navLinks = [
         path: "/promotions",
         icon: Tag,
     },
+    {
+        label: "Vendor",
+        path: "/vendor",
+        icon: Handshake,
+    },
 ];
 
 export default function Header() {
@@ -36,10 +42,10 @@ export default function Header() {
 
     return (
         <header className="w-full bg-background/90 backdrop-blur-md border-b border-border sticky top-0 z-40">
-            <div className="container mx-auto flex items-center justify-between gap-4 px-6 py-4">
+            <div className="container mx-auto flex items-center justify-between gap-4 px-5 py-4">
 
                 {/* Left Side */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-10">
 
                     {/* Mobile Sidebar */}
                     <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>

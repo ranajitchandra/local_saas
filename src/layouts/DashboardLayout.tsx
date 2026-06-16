@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Outlet, useLocation } from "react-router"
-import { LayoutDashboard, BarChart3, Users, CreditCard, Settings } from "lucide-react"
+import { LayoutDashboard, BarChart3, Users, CreditCard, Settings, Cylinder } from "lucide-react"
 
 // Import custom sub-components
 import { Sidebar } from "@/components/layout/Sidebar"
@@ -69,6 +69,7 @@ export function DashboardLayout() {
         { name: "Dashboard", path: "/dashboard", icon: <LayoutDashboard className="h-4 w-4" /> },
         { name: "Analytics", path: "/dashboard/analytics", icon: <BarChart3 className="h-4 w-4" />, badge: "Beta" },
         { name: "Customers", path: "/dashboard/customers", icon: <Users className="h-4 w-4" /> },
+        { name: "Inventory", path: "/dashboard/inventory", icon: <Cylinder className="h-4 w-4" /> },
         { name: "Billing & Plans", path: "/dashboard/billing", icon: <CreditCard className="h-4 w-4" /> },
         { name: "Settings", path: "/dashboard/settings", icon: <Settings className="h-4 w-4" /> },
     ]
@@ -129,7 +130,7 @@ export function DashboardLayout() {
                 />
 
                 {/* Inner page content outlet rendering */}
-                <main className="flex-1 overflow-y-auto bg-muted/15 relative z-10">
+                <main className="flex-1 overflow-y-auto bg-muted/15 relative z-10 p-5">
                     <Outlet />
                 </main>
             </div>
