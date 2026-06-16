@@ -1,6 +1,7 @@
 import { AlertTriangle, Ban, Package, Store } from "lucide-react";
 import ProductStats from "./ProductStats";
 import InventoryList from "./InventoryList";
+import InventoryTipAlert from "./InventoryTipAlert";
 
 export default function InventoryPage() {
 
@@ -34,7 +35,7 @@ export default function InventoryPage() {
             </div>
 
             <InventoryList />
-
+            <InventoryTipAlert />
         </div>
     )
 }
