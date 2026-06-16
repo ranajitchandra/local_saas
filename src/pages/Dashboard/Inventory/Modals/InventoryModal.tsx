@@ -1,4 +1,3 @@
-"use client"
 
 import { useEffect, useState } from "react"
 
@@ -34,7 +33,8 @@ export default function InventoryModal({
         price: 0,
         stock: 0,
         image: "",
-    })
+        status: "In Stock",
+    });
 
     useEffect(() => {
         if (product) {
@@ -55,7 +55,8 @@ export default function InventoryModal({
             price: 0,
             stock: 0,
             image: "",
-        })
+            status: "In Stock",
+        });
     }
 
     return (
