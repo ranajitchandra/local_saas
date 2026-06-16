@@ -132,7 +132,7 @@ export default function InventoryList() {
     };
 
     return (
-        <div className="quickmart-theme p-6">
+        <div className="quickmart-theme">
             <div className="overflow-hidden rounded-2xl border bg-card shadow-sm">
 
                 {/* Filters */}
