@@ -14,6 +14,7 @@ import Addresses from "@/pages/ClientProfile/Addresses"
 import PaymentMethods from "@/pages/ClientProfile/PaymentMethods"
 import SecurityPrivacy from "@/pages/ClientProfile/SecurityPrivacy"
 import VendorPage from "@/pages/Vendor/VendorPage"
+import InventoryPage from "@/pages/Dashboard/Inventory/InventoryPage"
 
 export const router = createBrowserRouter([
     {
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Dashboard />,
+            },
+            {
+                path: "inventory",
+                element: <InventoryPage />
             },
             {
                 path: "analytics",

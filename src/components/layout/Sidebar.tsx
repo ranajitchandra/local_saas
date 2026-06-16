@@ -41,7 +41,7 @@ export function Sidebar({ isCollapsed, onToggleCollapse, navItems, user }: Sideb
           <Sparkles className="h-5 w-5" />
         </div>
         {!isCollapsed && (
-          <span className="font-extrabold text-base bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent tracking-tight animate-fade-in">
+          <span className="font-extrabold text-base bg-linear-to-r from-foreground to-foreground/80 bg-clip-text text-transparent tracking-tight animate-fade-in">
             SaaS Engine
           </span>
         )}
