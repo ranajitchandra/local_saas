@@ -15,6 +15,8 @@ import PaymentMethods from "@/pages/ClientProfile/PaymentMethods"
 import SecurityPrivacy from "@/pages/ClientProfile/SecurityPrivacy"
 import VendorPage from "@/pages/Vendor/VendorPage"
 import InventoryPage from "@/pages/Dashboard/Inventory/InventoryPage"
+import OrdersPage from "@/pages/Dashboard/Orders/OrdersPage"
+import CustomersPage from "@/pages/Dashboard/Customers/CustomersPage"
 
 export const router = createBrowserRouter([
     {
@@ -96,6 +98,10 @@ export const router = createBrowserRouter([
                 element: <InventoryPage />
             },
             {
+                path: "orders",
+                element: <OrdersPage />
+            },
+            {
                 path: "analytics",
                 element: (
                     <div className="p-6 lg:p-8 animate-fade-in space-y-6">
@@ -116,22 +122,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "customers",
-                element: (
-                    <div className="p-6 lg:p-8 animate-fade-in space-y-6">
-                        <div>
-                            <h1 className="text-3xl font-extrabold tracking-tight text-foreground">Customers</h1>
-                            <p className="text-sm text-muted-foreground mt-1">
-                                Manage customer profiles, lifecycle, and account settings.
-                            </p>
-                        </div>
-                        <div className="border border-border/50 rounded-xl h-96 flex flex-col items-center justify-center text-center p-6 bg-card/40 backdrop-blur-md">
-                            <span className="text-2xl font-bold mb-2 text-foreground">Customer Accounts directory</span>
-                            <span className="text-sm text-muted-foreground max-w-sm">
-                                CRM lists, client telemetry, activity summaries, and filters will reside here. Click on Dashboard in the sidebar to return home.
-                            </span>
-                        </div>
-                    </div>
-                )
+                element: <CustomersPage />
             },
             {
                 path: "billing",
