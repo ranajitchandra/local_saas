@@ -130,7 +130,7 @@ export default function CustomersTable() {
 
                 {/* Responsive Scroll Table */}
                 <div className="overflow-x-auto">
-                    <div className="min-w-[950px]">
+                    <div className="min-w-238">
                         {/* Header */}
                         <div className="grid grid-cols-6 bg-muted px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                             <div>Customer</div>
