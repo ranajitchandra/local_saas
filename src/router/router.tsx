@@ -15,6 +15,7 @@ import PaymentMethods from "@/pages/ClientProfile/PaymentMethods"
 import SecurityPrivacy from "@/pages/ClientProfile/SecurityPrivacy"
 import VendorPage from "@/pages/Vendor/VendorPage"
 import InventoryPage from "@/pages/Dashboard/Inventory/InventoryPage"
+import OrdersPage from "@/pages/Dashboard/Orders/OrdersPage"
 
 export const router = createBrowserRouter([
     {
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
             {
                 path: "inventory",
                 element: <InventoryPage />
+            },
+            {
+                path: "orders",
+                element: <OrdersPage />
             },
             {
                 path: "analytics",
