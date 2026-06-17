@@ -101,14 +101,14 @@ export default function CustomersTable() {
         <div className="quickmart-theme min-h-screen bg-background">
             <Card className="overflow-hidden border-border bg-card shadow-sm">
                 {/* Header */}
-                <div className="flex items-center justify-between border-b border-border p-4">
-                    <div className="flex flex-wrap gap-2">
+                <div className="flex flex-col gap-4 border-b border-border p-4 md:flex-row md:items-center md:justify-between">
+                    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
                         {tabs.map((tab) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
                                 className={cn(
-                                    "rounded-lg px-4 py-2 text-sm font-medium transition-all",
+                                    "shrink-0 rounded-lg px-4 py-2 text-sm font-medium transition-all",
                                     activeTab === tab
                                         ? "bg-primary text-primary-foreground"
                                         : "text-muted-foreground hover:bg-muted"
@@ -121,111 +121,121 @@ export default function CustomersTable() {
 
                     <Button
                         variant="outline"
-                        className="border-border bg-background"
+                        className="w-full border-border bg-background md:w-auto"
                     >
                         <Filter className="mr-2 h-4 w-4" />
                         More Filters
                     </Button>
                 </div>
 
-                {/* Table Header */}
-                <div className="grid grid-cols-[2fr_1fr_1fr_1.2fr_1.5fr_80px] bg-muted px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    <div>Customer</div>
-                    <div>Status</div>
-                    <div>Tier</div>
-                    <div>Total Orders</div>
-                    <div>Total Spend</div>
-                    <div>Actions</div>
-                </div>
-
-                {/* Rows */}
-                <div>
-                    {filtered.map((customer) => (
-                        <div
-                            key={customer.id}
-                            className="grid grid-cols-[2fr_1fr_1fr_1.2fr_1.5fr_80px] items-center border-b border-border px-6 py-5 transition-colors hover:bg-muted/40"
-                        >
-                            {/* Customer */}
-                            <div className="flex items-center gap-3">
-                                <Avatar className="h-11 w-11">
-                                    <AvatarImage src={customer.avatar} />
-                                    <AvatarFallback>
-                                        {customer.name.slice(0, 2)}
-                                    </AvatarFallback>
-                                </Avatar>
-
-                                <div>
-                                    <p className="font-semibold text-foreground">
-                                        {customer.name}
-                                    </p>
-                                    <p className="text-sm text-muted-foreground">
-                                        {customer.email}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Status */}
-                            <div>
-                                <Badge
-                                    className={cn(
-                                        "rounded-md border-0",
-                                        customer.status === "ACTIVE" &&
-                                        "bg-emerald-100 text-emerald-700",
-                                        customer.status === "PENDING" &&
-                                        "bg-amber-100 text-amber-700",
-                                        customer.status === "INACTIVE" &&
-                                        "bg-red-100 text-red-700"
-                                    )}
-                                >
-                                    {customer.status}
-                                </Badge>
-                            </div>
-
-                            {/* Tier */}
-                            <div className="flex items-center gap-2">
-                                {customer.tier === "VIP" && (
-                                    <Crown className="h-4 w-4 text-primary" />
-                                )}
-                                {customer.tier === "Platinum" && (
-                                    <Award className="h-4 w-4 text-primary" />
-                                )}
-                                {customer.tier === "Regular" && (
-                                    <User className="h-4 w-4 text-muted-foreground" />
-                                )}
-
-                                <span className="text-sm">{customer.tier}</span>
-                            </div>
-
-                            {/* Orders */}
-                            <div className="font-medium">
-                                {customer.orders} Orders
-                            </div>
-
-                            {/* Spend */}
-                            <div className="text-xl font-bold text-foreground">
-                                $
-                                {customer.spend.toLocaleString(undefined, {
-                                    minimumFractionDigits: 2,
-                                })}
-                            </div>
-
-                            {/* Actions */}
-                            <div>
-                                <Button size="icon" variant="ghost">
-                                    ⋯
-                                </Button>
-                            </div>
+                {/* Responsive Scroll Table */}
+                <div className="overflow-x-auto">
+                    <div className="min-w-[950px]">
+                        {/* Header */}
+                        <div className="grid grid-cols-6 bg-muted px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                            <div>Customer</div>
+                            <div>Status</div>
+                            <div>Tier</div>
+                            <div>Total Orders</div>
+                            <div>Total Spend</div>
+                            <div>Actions</div>
                         </div>
-                    ))}
+
+                        {/* Rows */}
+                        <div>
+                            {filtered.map((customer) => (
+                                <div
+                                    key={customer.id}
+                                    className="grid grid-cols-6 items-center border-b border-border px-6 py-5 transition-colors hover:bg-muted/40"
+                                >
+                                    {/* Customer */}
+                                    <div className="flex min-w-0 items-center gap-3">
+                                        <Avatar className="h-11 w-11 shrink-0">
+                                            <AvatarImage src={customer.avatar} />
+                                            <AvatarFallback>
+                                                {customer.name.slice(0, 2)}
+                                            </AvatarFallback>
+                                        </Avatar>
+
+                                        <div className="min-w-0">
+                                            <p className="truncate font-semibold text-foreground">
+                                                {customer.name}
+                                            </p>
+
+                                            <p className="truncate text-sm text-muted-foreground">
+                                                {customer.email}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Status */}
+                                    <div>
+                                        <Badge
+                                            className={cn(
+                                                "rounded-md border-0",
+                                                customer.status === "ACTIVE" &&
+                                                "bg-emerald-100 text-emerald-700",
+                                                customer.status === "PENDING" &&
+                                                "bg-amber-100 text-amber-700",
+                                                customer.status === "INACTIVE" &&
+                                                "bg-red-100 text-red-700"
+                                            )}
+                                        >
+                                            {customer.status}
+                                        </Badge>
+                                    </div>
+
+                                    {/* Tier */}
+                                    <div className="flex items-center gap-2">
+                                        {customer.tier === "VIP" && (
+                                            <Crown className="h-4 w-4 text-primary" />
+                                        )}
+
+                                        {customer.tier === "Platinum" && (
+                                            <Award className="h-4 w-4 text-primary" />
+                                        )}
+
+                                        {customer.tier === "Regular" && (
+                                            <User className="h-4 w-4 text-muted-foreground" />
+                                        )}
+
+                                        <span className="text-sm">
+                                            {customer.tier}
+                                        </span>
+                                    </div>
+
+                                    {/* Orders */}
+                                    <div className="font-medium">
+                                        {customer.orders} Orders
+                                    </div>
+
+                                    {/* Spend */}
+                                    <div className="text-xl font-bold text-foreground">
+                                        $
+                                        {customer.spend.toLocaleString(undefined, {
+                                            minimumFractionDigits: 2,
+                                        })}
+                                    </div>
+
+                                    {/* Actions */}
+                                    <div>
+                                        <Button size="icon" variant="ghost">
+                                            ⋯
+                                        </Button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                {/* Footer / Pagination */}
-                <div className="flex items-center justify-between px-6 py-5">
+                {/* Pagination */}
+                <div className="flex flex-col gap-4 px-4 py-5 md:flex-row md:items-center md:justify-between md:px-6">
                     <p className="text-sm text-muted-foreground">
                         Showing 1-10 of 12,428 customers
                     </p>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                         <Button
                             size="icon"
                             variant="ghost"
