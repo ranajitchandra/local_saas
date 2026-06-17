@@ -1,10 +1,11 @@
+import OrdersTable from "./OrdersTable";
 
 
 
 export default function OrdersPage() {
-  return (
-    <div>
-      
-    </div>
-  )
+    return (
+        <div className="quickmart-theme">
+            <OrdersTable />
+        </div>
+    )
 }
