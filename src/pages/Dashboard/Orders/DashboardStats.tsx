@@ -1,5 +1,6 @@
-import { dashboardStats } from "@/data/dashboard-stats";
-import { StatsCard } from "./stats-card";
+import { dashboardStats } from "@/Mock_Data/Dashboard/orders";
+import { StatsCard } from "./StatsCard";
+
 
 export default function DashboardStats() {
     return (
