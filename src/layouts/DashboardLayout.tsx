@@ -66,7 +66,7 @@ export function DashboardLayout() {
 
     // Navigation configuration - mapped to nested paths under /dashboard
     const navItems = [
-        { name: "Dashboard", path: "/dashboard", icon: <LayoutDashboard className="h-4 w-4" /> },
+        { name: "Dashboard", path: "/dashboard", icon: <LayoutDashboard className="h-4 w-4" />, end: true },
         { name: "Analytics", path: "/dashboard/analytics", icon: <BarChart3 className="h-4 w-4" />, badge: "Beta" },
         { name: "Customers", path: "/dashboard/customers", icon: <Users className="h-4 w-4" /> },
         { name: "Inventory", path: "/dashboard/inventory", icon: <Cylinder className="h-4 w-4" /> },

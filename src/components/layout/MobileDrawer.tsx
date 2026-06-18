@@ -7,6 +7,7 @@ interface NavItem {
   path: string
   icon: React.ReactNode
   badge?: string
+  end?: boolean
 }
 
 interface MobileDrawerProps {
@@ -58,6 +59,7 @@ export function MobileDrawer({ isOpen, onClose, navItems, user }: MobileDrawerPr
                 key={item.name}
                 to={item.path}
                 onClick={onClose}
+                end={item.end}
                 className={({ isActive }) =>
                   `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${
                     isActive
