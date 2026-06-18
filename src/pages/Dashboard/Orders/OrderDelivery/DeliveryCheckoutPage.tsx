@@ -1,5 +1,4 @@
 import { CheckCircle2, Package, Truck, MapPin, ShieldCheck, Phone, MessageSquare, CreditCard, Circle } from "lucide-react";
-import { useState } from "react";
 import OTPInput from "./OTPInput";
 
 type Product = {
