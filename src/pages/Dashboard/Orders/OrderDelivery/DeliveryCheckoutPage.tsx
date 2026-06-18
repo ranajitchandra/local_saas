@@ -128,11 +128,6 @@ function Row({ label, value, highlight }: { label: string; value: string; highli
 
 export default function DeliveryCheckoutPage() {
 
-    const [otp, setOtp] = useState(["", "", "", "", "", ""]);
-
-
-
-
     return (
         <div className="quickmart-theme min-h-screen bg-background">
             <div className=" space-y-5">
@@ -189,7 +184,7 @@ export default function DeliveryCheckoutPage() {
                                 </h2>
                             </div>
 
-                            <div className="space-y-3">
+                            <div className="space-y-3 lg:space-y-5">
                                 {products.map((item) => (
                                     <div
                                         key={item.id}
@@ -316,7 +311,7 @@ export default function DeliveryCheckoutPage() {
                                 />
                             </div>
 
-                            <div className="mt-5 border-t pt-4">
+                            <div className="mt-5 border-t pt-1">
                                 <Row
                                     label="Total Amount"
                                     value="$410.46"
@@ -327,11 +322,11 @@ export default function DeliveryCheckoutPage() {
 
                         {/* Verification */}
                         <section className="flex flex-col justify-center items-center rounded-2xl bg-primary p-4 text-primary-foreground">
-                            <div className="mb-5 flex items-center justify-center gap-2 font-semibold">
+                            <div className="mb-3 flex items-center justify-center gap-2 font-semibold">
                                 <ShieldCheck size={18} />
                                 Verification
                             </div>
-                            <div className="w-fit mb-5 overflow-hidden rounded-xl bg-white p-3">
+                            <div className="w-fit mb-3 overflow-hidden rounded-xl bg-white p-3">
                                 <img
                                     src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=ORDER-123456"
                                     alt="QR Code"
@@ -339,13 +334,13 @@ export default function DeliveryCheckoutPage() {
                                 />
                             </div>
 
-                            <p className="mb-4 text-center text-xs uppercase">
+                            <p className="mb-3 text-center text-xs uppercase">
                                 Share this OTP with delivery agent
                             </p>
 
                             <OTPInput />
 
-                            <button className="w-fit rounded-xl bg-white px-5 py-2 md:py-3 font-medium text-primary transition hover:opacity-90 mt-6">
+                            <button className="w-fit rounded-xl bg-white px-5 py-2 md:py-3 font-medium text-primary transition hover:opacity-90 mt-4">
                                 Confirm Handover
                             </button>
                         </section>

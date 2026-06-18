@@ -17,6 +17,7 @@ import VendorPage from "@/pages/Vendor/VendorPage"
 import InventoryPage from "@/pages/Dashboard/Inventory/InventoryPage"
 import OrdersPage from "@/pages/Dashboard/Orders/OrdersPage"
 import CustomersPage from "@/pages/Dashboard/Customers/CustomersPage"
+import DeliveryCheckoutPage from "@/pages/Dashboard/Orders/OrderDelivery/DeliveryCheckoutPage"
 
 export const router = createBrowserRouter([
     {
@@ -100,6 +101,10 @@ export const router = createBrowserRouter([
             {
                 path: "orders",
                 element: <OrdersPage />
+            },
+            {
+                path: "orders/order-delivery-checkout",
+                element: <DeliveryCheckoutPage />
             },
             {
                 path: "analytics",
