@@ -49,10 +49,10 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
 
     return (
         <header className="w-full bg-background/90 backdrop-blur-md border-b border-border sticky top-0 z-40">
-            <div className="container mx-auto flex items-center justify-between gap-4 px-5 py-4">
+            <div className="container mx-auto flex items-center justify-between gap-4 px-4 md:px-5 py-4">
 
                 {/* Left Side */}
-                <div className="flex items-center gap-10">
+                <div className="flex items-center gap-2">
 
                     {/* Mobile Sidebar */}
                     <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -157,7 +157,7 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
                     </div>
 
                     {/* Wishlist */}
-                    <button className="text-foreground hover:text-red-500 transition-colors">
+                    <button className="hidden ml:block text-foreground hover:text-red-500 transition-colors">
                         <Heart className="h-5 w-5" />
                     </button>
 
