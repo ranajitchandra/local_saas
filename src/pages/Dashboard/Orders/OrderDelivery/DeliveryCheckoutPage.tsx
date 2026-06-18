@@ -57,7 +57,7 @@ const steps = [
 
 
 
-function InputField({ label, value}: { label: string; value: string}) {
+function InputField({ label, value }: { label: string; value: string }) {
     return (
         <div>
             <label className="mb-1 block text-xs font-medium">
@@ -126,39 +126,36 @@ function Row({ label, value, highlight }: { label: string; value: string; highli
 
 export default function DeliveryCheckoutPage() {
     return (
-        <div className="quickmart-theme min-h-screen bg-background p-3 md:p-5">
-            <div className="mx-auto max-w-7xl space-y-5">
+        <div className="quickmart-theme min-h-screen bg-background">
+            <div className=" space-y-5">
 
                 {/* Tracking Progress */}
                 <section className="rounded-2xl border bg-card p-4 md:p-6">
-                    <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-start justify-between">
                         {steps.map((step, index) => {
                             const Icon = step.icon;
 
                             return (
                                 <div
                                     key={step.title}
-                                    className="flex flex-1 items-center"
+                                    className="relative flex flex-1 flex-col items-center"
                                 >
-                                    <div className="flex flex-col items-center">
-                                        <div
-                                            className={`flex h-10 w-10 items-center justify-center rounded-full
-                      ${step.active
-                                                    ? "bg-primary text-primary-foreground"
-                                                    : "bg-muted text-muted-foreground"
-                                                }`}
-                                        >
-                                            <Icon size={18} />
-                                        </div>
+                                    {/* Line */}
+                                    {index !== steps.length - 1 && (
+                                        <div className="absolute top-5 left-1/2 z-0 h-0.5 w-full bg-border" />
+                                    )}
 
-                                        <span className="mt-2 text-center text-xs font-medium md:text-sm">
-                                            {step.title}
-                                        </span>
+                                    {/* Icon */}
+                                    <div
+                                        className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-background ${step.active ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}
+                                    >
+                                        <Icon size={18} />
                                     </div>
 
-                                    {index !== steps.length - 1 && (
-                                        <div className="mx-2 h-[2px] flex-1 bg-border" />
-                                    )}
+                                    {/* Text */}
+                                    <span className="mt-2 hidden text-center text-xs font-medium md:block">
+                                        {step.title}
+                                    </span>
                                 </div>
                             );
                         })}
