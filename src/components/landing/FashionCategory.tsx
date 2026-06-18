@@ -13,7 +13,7 @@ export function FashionCategory() {
     return (
         <div className="space-y-4">
             {/* Category Section Header Row */}
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between border-b border-teal-100/50 pb-3">
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-between pb-3">
                 <div className="flex items-center gap-3">
                     <div className="h-10 w-10 rounded-full bg-secondary/15 flex items-center justify-center text-primary border border-secondary/20">
                         <Shirt className="h-5 w-5" />
