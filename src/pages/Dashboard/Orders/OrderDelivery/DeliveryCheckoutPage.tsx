@@ -1,4 +1,6 @@
 import { CheckCircle2, Package, Truck, MapPin, ShieldCheck, Phone, MessageSquare, CreditCard, Circle } from "lucide-react";
+import { useState } from "react";
+import OTPInput from "./OTPInput";
 
 type Product = {
     id: number;
@@ -17,7 +19,7 @@ const products: Product[] = [
         color: "Tech Red",
         size: 42,
         price: 129.99,
-        image: "https://placehold.co/80x80",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80",
         qty: 1,
     },
     {
@@ -26,7 +28,7 @@ const products: Product[] = [
         color: "Midnight Black",
         size: 0,
         price: 249.5,
-        image: "https://placehold.co/80x80",
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&q=80",
         qty: 1,
     },
 ];
@@ -125,40 +127,47 @@ function Row({ label, value, highlight }: { label: string; value: string; highli
 }
 
 export default function DeliveryCheckoutPage() {
+
+    const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+
+
+
+
     return (
         <div className="quickmart-theme min-h-screen bg-background">
             <div className=" space-y-5">
 
                 {/* Tracking Progress */}
                 <section className="rounded-2xl border bg-card p-4 md:p-6">
-                    <div className="flex items-start justify-between">
-                        {steps.map((step, index) => {
-                            const Icon = step.icon;
+                    <div className="relative">
+                        {/* Main Line */}
+                        <div className="absolute top-5 left-5 right-5 h-0.5 bg-border" />
 
-                            return (
-                                <div
-                                    key={step.title}
-                                    className="relative flex flex-1 flex-col items-center"
-                                >
-                                    {/* Line */}
-                                    {index !== steps.length - 1 && (
-                                        <div className="absolute top-5 left-1/2 z-0 h-0.5 w-full bg-border" />
-                                    )}
+                        <div className="relative flex justify-between">
+                            {steps.map((step) => {
+                                const Icon = step.icon;
 
-                                    {/* Icon */}
+                                return (
                                     <div
-                                        className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-background ${step.active ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}
+                                        key={step.title}
+                                        className="z-10 flex flex-col items-center"
                                     >
-                                        <Icon size={18} />
-                                    </div>
+                                        <div
+                                            className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-background ${step.active
+                                                ? "bg-primary text-primary-foreground"
+                                                : "bg-muted text-muted-foreground"
+                                                }`}
+                                        >
+                                            <Icon size={18} />
+                                        </div>
 
-                                    {/* Text */}
-                                    <span className="mt-2 hidden text-center text-xs font-medium md:block">
-                                        {step.title}
-                                    </span>
-                                </div>
-                            );
-                        })}
+                                        <span className="mt-2 hidden text-center text-xs font-medium md:block">
+                                            {step.title}
+                                        </span>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
                 </section>
 
@@ -317,34 +326,26 @@ export default function DeliveryCheckoutPage() {
                         </section>
 
                         {/* Verification */}
-                        <section className="rounded-2xl bg-primary p-5 text-primary-foreground">
+                        <section className="flex flex-col justify-center items-center rounded-2xl bg-primary p-4 text-primary-foreground">
                             <div className="mb-5 flex items-center justify-center gap-2 font-semibold">
                                 <ShieldCheck size={18} />
                                 Verification
                             </div>
-
-                            <div className="mx-auto mb-5 flex h-40 w-40 items-center justify-center rounded-xl bg-white text-primary">
-                                QR
-                            </div>
+                                <div className="w-fit mb-5 overflow-hidden rounded-xl bg-white p-3">
+                                    <img
+                                        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=ORDER-123456"
+                                        alt="QR Code"
+                                        className="h-40 w-40"
+                                    />
+                                </div>
 
                             <p className="mb-4 text-center text-xs uppercase">
                                 Share this OTP with delivery agent
                             </p>
 
-                            <div className="mb-5 flex justify-center gap-2">
-                                {["4", "9", "1", "0", "5", "8"].map(
-                                    (digit) => (
-                                        <div
-                                            key={digit}
-                                            className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/15 font-semibold"
-                                        >
-                                            {digit}
-                                        </div>
-                                    )
-                                )}
-                            </div>
+                            <OTPInput />
 
-                            <button className="w-full rounded-xl bg-white py-3 font-medium text-primary transition hover:opacity-90">
+                            <button className="w-fit rounded-xl bg-white px-5 py-2 md:py-3 font-medium text-primary transition hover:opacity-90 mt-6">
                                 Confirm Handover
                             </button>
                         </section>
