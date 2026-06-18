@@ -41,12 +41,12 @@ export function Header({
   }
 
   return (
-    <header className="h-16 border-b border-border/50 bg-card/65 backdrop-blur-md flex items-center justify-between px-6 shrink-0 z-30 select-none relative">
+    <header className="h-16 border-b border-border/50 bg-card/65 backdrop-blur-md flex items-center justify-between px-4 md:px-5 shrink-0 z-30 select-none relative">
       {/* Header Left (Mobile menu trigger + Breadcrumb) */}
       <div className="flex items-center gap-3">
         <button
           onClick={onOpenMobileMenu}
-          className="lg:hidden rounded-lg p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer"
+          className="lg:hidden rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer"
         >
           <Menu className="h-5.5 w-5.5" />
         </button>

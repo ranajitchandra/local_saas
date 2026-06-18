@@ -7,6 +7,7 @@ interface NavItem {
   path: string
   icon: React.ReactNode
   badge?: string
+  end?: boolean
 }
 
 interface SidebarProps {
@@ -53,6 +54,7 @@ export function Sidebar({ isCollapsed, onToggleCollapse, navItems, user }: Sideb
           <NavLink
             key={item.name}
             to={item.path}
+            end={item.end}
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-lg px-3 py-2 transition-all relative group/nav ${
                 isActive

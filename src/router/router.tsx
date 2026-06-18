@@ -2,7 +2,6 @@ import { createBrowserRouter, Navigate } from "react-router"
 import { MainLayout } from "../layouts/MainLayout"
 import { DashboardLayout } from "../layouts/DashboardLayout"
 import { AuthLayout } from "../layouts/AuthLayout"
-import { Dashboard } from "../pages/Dashboard"
 import { Login } from "../pages/Login"
 import { Register } from "../pages/Register"
 import HomePage from "@/pages/Home/HomePage"
@@ -17,6 +16,8 @@ import VendorPage from "@/pages/Vendor/VendorPage"
 import InventoryPage from "@/pages/Dashboard/Inventory/InventoryPage"
 import OrdersPage from "@/pages/Dashboard/Orders/OrdersPage"
 import CustomersPage from "@/pages/Dashboard/Customers/CustomersPage"
+import DeliveryCheckoutPage from "@/pages/Dashboard/Orders/OrderDelivery/DeliveryCheckoutPage"
+import DashboardPage from "@/pages/Dashboard/Home/DashboardPage"
 
 export const router = createBrowserRouter([
     {
@@ -91,7 +92,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Dashboard />,
+                element: <DashboardPage />,
             },
             {
                 path: "inventory",
@@ -100,6 +101,10 @@ export const router = createBrowserRouter([
             {
                 path: "orders",
                 element: <OrdersPage />
+            },
+            {
+                path: "orders/order-delivery-checkout",
+                element: <DeliveryCheckoutPage />
             },
             {
                 path: "analytics",

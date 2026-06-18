@@ -66,7 +66,7 @@ export function DashboardLayout() {
 
     // Navigation configuration - mapped to nested paths under /dashboard
     const navItems = [
-        { name: "Dashboard", path: "/dashboard", icon: <LayoutDashboard className="h-4 w-4" /> },
+        { name: "Dashboard", path: "/dashboard", icon: <LayoutDashboard className="h-4 w-4" />, end: true },
         { name: "Analytics", path: "/dashboard/analytics", icon: <BarChart3 className="h-4 w-4" />, badge: "Beta" },
         { name: "Customers", path: "/dashboard/customers", icon: <Users className="h-4 w-4" /> },
         { name: "Inventory", path: "/dashboard/inventory", icon: <Cylinder className="h-4 w-4" /> },
@@ -131,7 +131,7 @@ export function DashboardLayout() {
                 />
 
                 {/* Inner page content outlet rendering */}
-                <main className="flex-1 overflow-y-auto bg-muted/15 relative z-10 p-5">
+                <main className="flex-1 overflow-y-auto bg-muted/15 relative z-10 p-4 md:p-5">
                     <Outlet />
                 </main>
             </div>

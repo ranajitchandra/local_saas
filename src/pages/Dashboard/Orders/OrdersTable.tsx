@@ -12,6 +12,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { formatCurrency, getStatusStyle } from "@/utils/order";
 import type { Order, OrderStatus } from "@/types/dashboard/order";
+import { useNavigate } from "react-router";
 
 
 /* ---------------- DATA ---------------- */
@@ -70,6 +71,9 @@ const initialOrders: Order[] = [
 /* ---------------- COMPONENT ---------------- */
 
 export default function OrdersTable() {
+
+    const navigate = useNavigate()
+
     const [orders, setOrders] =
         useState<Order[]>(initialOrders);
 
@@ -144,6 +148,10 @@ export default function OrdersTable() {
 
         setEditOrder(null);
     };
+
+    function handleClick () {
+        navigate("/dashboard/orders/order-delivery-checkout")
+    }
 
     return (
         <div className="quickmart-theme">
@@ -318,54 +326,39 @@ export default function OrdersTable() {
                             {paginatedOrders.map(
                                 (order) => (
                                     <tr
-                                        key={
-                                            order.id
-                                        }
-                                        className="border-t"
+                                        key={order.id}
+                                        onClick={handleClick}
+                                        className="border-t cursor-pointer hover:bg-primary/2 transition-all duration-300"
                                     >
                                         <td className="px-6 py-5 font-semibold text-primary">
-                                            {
-                                                order.id
-                                            }
+                                            {order.id}
                                         </td>
 
                                         <td className="px-6 py-5">
                                             <div className="flex items-center gap-3">
                                                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 font-semibold text-primary">
-                                                    {
-                                                        order.initials
-                                                    }
+                                                    {order.initials}
                                                 </div>
 
                                                 <span>
-                                                    {
-                                                        order.customer
-                                                    }
+                                                    {order.customer}
                                                 </span>
                                             </div>
                                         </td>
 
                                         <td className="px-6 py-5">
-                                            {
-                                                order.date
-                                            }
+                                            {order.date}
                                         </td>
 
                                         <td className="px-6 py-5 font-semibold">
-                                            {formatCurrency(
-                                                order.amount
-                                            )}
+                                            {formatCurrency(order.amount)}
                                         </td>
 
                                         <td className="px-6 py-5">
                                             <span
-                                                className={`rounded-full px-3 py-1 text-xs font-semibold ${getStatusStyle(
-                                                    order.status
-                                                )}`}
+                                                className={`rounded-full px-3 py-1 text-xs font-semibold ${getStatusStyle(order.status)}`}
                                             >
-                                                {
-                                                    order.status
-                                                }
+                                                {order.status}
                                             </span>
                                         </td>
 
@@ -374,9 +367,7 @@ export default function OrdersTable() {
                                                 size="icon"
                                                 variant="ghost"
                                                 onClick={() =>
-                                                    setEditOrder(
-                                                        order
-                                                    )
+                                                    setEditOrder(order)
                                                 }
                                             >
                                                 <Pencil className="h-4 w-4" />
@@ -402,10 +393,7 @@ export default function OrdersTable() {
 
                     <p className="text-sm text-muted-foreground">
                         Showing{" "}
-                        {
-                            paginatedOrders.length
-                        }{" "}
-                        of {orders.length}{" "}
+                        {paginatedOrders.length}{" "} of {orders.length}{" "}
                         orders
                     </p>
 
@@ -434,23 +422,13 @@ export default function OrdersTable() {
                                     key={
                                         index
                                     }
-                                    variant={
-                                        page ===
-                                            index +
-                                            1
-                                            ? "default"
-                                            : "outline"
-                                    }
+                                    variant={page === index + 1 ? "default" : "outline"}
                                     size="icon"
                                     onClick={() =>
-                                        setPage(
-                                            index +
-                                            1
-                                        )
+                                        setPage(index + 1)
                                     }
                                 >
-                                    {index +
-                                        1}
+                                    {index + 1}
                                 </Button>
                             )
                         )}

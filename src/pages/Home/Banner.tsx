@@ -1,7 +1,7 @@
 // Landing Banner Component
 export default function Banner() {
     return (
-        <section className="w-full bg-muted/30 relative overflow-hidden select-none transition-colors duration-200">
+        <section className="w-full relative overflow-hidden select-none transition-colors duration-200">
             <div className="grid md:grid-cols-12 gap-8 items-center">
 
                 {/* Left Side Info Panel */}
