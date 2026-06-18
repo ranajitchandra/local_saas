@@ -7,6 +7,8 @@ import {
     Home,
     Tag,
     Handshake,
+    Sun,
+    Moon,
 } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router";
@@ -37,7 +39,12 @@ const navLinks = [
     },
 ];
 
-export default function Header() {
+interface HeaderProps {
+    isDarkMode?: boolean;
+    onToggleDarkMode?: () => void;
+}
+
+export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
@@ -158,6 +165,17 @@ export default function Header() {
                     <div className="text-foreground hover:text-primary transition-colors">
                         <CartDropdown />
                     </div>
+
+                    {/* Theme Toggle */}
+                    {onToggleDarkMode && (
+                        <button
+                            onClick={onToggleDarkMode}
+                            className="text-foreground hover:text-primary transition-colors"
+                            title="Toggle Light/Dark Theme"
+                        >
+                            {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                        </button>
+                    )}
 
                     {/* User */}
                     <Link to="/profile">

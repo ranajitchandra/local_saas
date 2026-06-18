@@ -1,22 +1,60 @@
+import { useState, useEffect } from "react"
 import { Outlet } from "react-router"
-import { Sparkles, Terminal, CheckCircle2 } from "lucide-react"
+import { Sparkles, Terminal, CheckCircle2, Sun, Moon } from "lucide-react"
 
 export function AuthLayout() {
-  return (
-    <div className="min-h-screen w-screen flex bg-background text-foreground font-sans transition-colors duration-200">
-      
-      {/* LEFT FORM PANEL (Centering Card and Forms) */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-between p-6 sm:p-10 relative z-10 bg-background/50 backdrop-blur-sm">
-        
-        {/* Top Branding Section */}
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-            <Sparkles className="h-4.5 w-4.5" />
-          </div>
-          <span className="font-extrabold text-base text-foreground tracking-tight">
-            SaaS Engine
-          </span>
-        </div>
+    const [isDarkMode, setIsDarkMode] = useState(false)
+
+    // Sync Dark Mode state on initial mount
+    useEffect(() => {
+        const isDark = document.documentElement.classList.contains("dark") ||
+            localStorage.getItem("theme") === "dark"
+        setIsDarkMode(isDark)
+        if (isDark) {
+            document.documentElement.classList.add("dark")
+        } else {
+            document.documentElement.classList.remove("dark")
+        }
+    }, [])
+
+    const toggleDarkMode = () => {
+        const nextDark = !isDarkMode
+        setIsDarkMode(nextDark)
+        if (nextDark) {
+            document.documentElement.classList.add("dark")
+            localStorage.setItem("theme", "dark")
+        } else {
+            document.documentElement.classList.remove("dark")
+            localStorage.setItem("theme", "light")
+        }
+    }
+
+    return (
+        <div className="min-h-screen w-screen flex bg-background text-foreground font-sans transition-colors duration-200">
+
+            {/* LEFT FORM PANEL (Centering Card and Forms) */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-between p-6 sm:p-10 relative z-10 bg-background/50 backdrop-blur-sm">
+
+                {/* Top Branding Section */}
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
+                            <Sparkles className="h-4.5 w-4.5" />
+                        </div>
+                        <span className="font-extrabold text-base text-foreground tracking-tight">
+                            SaaS Engine
+                        </span>
+                    </div>
+
+                    {/* Theme Toggle */}
+                    <button
+                        onClick={toggleDarkMode}
+                        className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                        title="Toggle Light/Dark Theme"
+                    >
+                        {isDarkMode ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
+                    </button>
+                </div>
 
         {/* Auth Sub-Route Content */}
         <div className="w-full max-w-md mx-auto my-auto py-12 animate-fade-in">
