@@ -1,10 +1,10 @@
 
 import { TrendingUp, TrendingDown, Users, ShoppingBag, Clock, DollarSign } from "lucide-react";
-
 import { Card } from "@/components/ui/card";
-
 import { orders } from "@/Mock_Data/Dashboard/orders";
 import type { DashboardStat } from "@/types/dashboard/order";
+
+
 
 function computeStats(): DashboardStat[] {
     const uniqueCustomers = new Set(orders.map((o) => o.customer));
