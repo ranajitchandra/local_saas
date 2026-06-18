@@ -131,7 +131,7 @@ export function DashboardLayout() {
                 />
 
                 {/* Inner page content outlet rendering */}
-                <main className="flex-1 overflow-y-auto bg-muted/15 relative z-10 p-5">
+                <main className="flex-1 overflow-y-auto bg-muted/15 relative z-10 p-4 md:p-5">
                     <Outlet />
                 </main>
             </div>

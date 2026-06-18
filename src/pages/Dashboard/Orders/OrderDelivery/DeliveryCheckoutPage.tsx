@@ -331,13 +331,13 @@ export default function DeliveryCheckoutPage() {
                                 <ShieldCheck size={18} />
                                 Verification
                             </div>
-                                <div className="w-fit mb-5 overflow-hidden rounded-xl bg-white p-3">
-                                    <img
-                                        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=ORDER-123456"
-                                        alt="QR Code"
-                                        className="h-40 w-40"
-                                    />
-                                </div>
+                            <div className="w-fit mb-5 overflow-hidden rounded-xl bg-white p-3">
+                                <img
+                                    src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=ORDER-123456"
+                                    alt="QR Code"
+                                    className="h-40 w-40"
+                                />
+                            </div>
 
                             <p className="mb-4 text-center text-xs uppercase">
                                 Share this OTP with delivery agent
@@ -354,9 +354,9 @@ export default function DeliveryCheckoutPage() {
                         <section className="rounded-2xl border bg-card p-4">
                             <div className="flex items-center gap-3">
                                 <img
-                                    src="https://placehold.co/60x60"
-                                    alt=""
-                                    className="h-12 w-12 rounded-full"
+                                    src="https://i.pravatar.cc/150?img=12"
+                                    alt="Driver"
+                                    className="h-12 w-12 rounded-full object-cover"
                                 />
 
                                 <div className="flex-1">
