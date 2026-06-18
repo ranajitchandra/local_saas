@@ -1,55 +1,67 @@
 
-import {
-    Users,
-    UserCheck,
-    UserPlus,
-    UserX,
-    TrendingUp,
-    TrendingDown,
-} from "lucide-react";
+import { TrendingUp, TrendingDown, Users, ShoppingBag, Clock, DollarSign } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
 
-const stats = [
-    {
-        title: "Total Customers",
-        value: "12.4k",
-        change: "+4.2%",
-        positive: true,
-        icon: Users,
-    },
-    {
-        title: "Active Users",
-        value: "8.9k",
-        change: "+2.1%",
-        positive: true,
-        icon: UserCheck,
-    },
-    {
-        title: "New Signups",
-        value: "842",
-        change: "+12%",
-        positive: true,
-        icon: UserPlus,
-    },
-    {
-        title: "Churn Rate",
-        value: "2.4%",
-        change: "-0.8%",
-        positive: false,
-        icon: UserX,
-    },
-];
+import { orders } from "@/Mock_Data/Dashboard/orders";
+import type { DashboardStat } from "@/types/dashboard/order";
+
+function computeStats(): DashboardStat[] {
+    const uniqueCustomers = new Set(orders.map((o) => o.customer));
+    const totalCustomers = uniqueCustomers.size;
+
+    const deliveredCount = orders.filter((o) => o.status === "Delivered").length;
+    const pendingCount = orders.filter((o) => o.status === "Pending").length;
+    const totalRevenue = orders.reduce((sum, o) => sum + o.amount, 0);
+
+    return [
+        {
+            id: 1,
+            title: "Total Customers",
+            value: String(totalCustomers),
+            change: "+5 from last month",
+            trend: "positive",
+            icon: Users,
+        },
+        {
+            id: 2,
+            title: "Orders Delivered",
+            value: String(deliveredCount),
+            change: "+2 from last month",
+            trend: "positive",
+            icon: ShoppingBag,
+        },
+        {
+            id: 3,
+            title: "Pending Orders",
+            value: String(pendingCount),
+            change: "-1 from last month",
+            trend: "positive",
+            icon: Clock,
+        },
+        {
+            id: 4,
+            title: "Total Revenue",
+            value: `$${totalRevenue.toLocaleString()}`,
+            change: "+$450 from last month",
+            trend: "positive",
+            icon: DollarSign,
+        },
+    ];
+}
 
 export default function CustomersStatsCards() {
+    const stats = computeStats();
+
     return (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {stats.map((item) => {
                 const Icon = item.icon;
+                const trendPositive = item.trend === "positive";
 
                 return (
                     <Card
-                        key={item.title}
+                        key={item.id}
                         className="border-border bg-card p-4 lg:p-6 shadow-sm transition-all hover:shadow-md"
                     >
                         <div className="flex items-start justify-between">
@@ -60,12 +72,12 @@ export default function CustomersStatsCards() {
 
                             {/* Percentage */}
                             <div
-                                className={`flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium ${item.positive
+                                className={`flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium ${trendPositive
                                         ? "bg-muted text-primary"
                                         : "bg-red-50 text-red-600 dark:bg-red-950/20 dark:text-red-400"
                                     }`}
                             >
-                                {item.positive ? (
+                                {trendPositive ? (
                                     <TrendingUp className="h-3.5 w-3.5" />
                                 ) : (
                                     <TrendingDown className="h-3.5 w-3.5" />
