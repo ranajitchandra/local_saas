@@ -340,7 +340,7 @@ export default function DeliveryCheckoutPage() {
 
                             <OTPInput />
 
-                            <button className="w-fit rounded-xl bg-white px-5 py-2 md:py-3 font-medium text-primary transition hover:opacity-90 mt-4">
+                            <button className="w-fit rounded-xl bg-white px-5 py-2 md:py-3 font-medium text-black transition hover:opacity-90 mt-4">
                                 Confirm Handover
                             </button>
                         </section>

@@ -57,7 +57,7 @@ export default function OTPInput() {
                     onKeyDown={(e) =>
                         handleKeyDown(e, index)
                     }
-                    className="h-9 w-8 sm:h-12 sm:w-12 rounded-lg border border-white/20 bg-white/15 text-center text-lg font-semibold text-white outline-none"
+                    className="h-9 w-8 sm:h-12 sm:w-12 rounded-lg border border-white/20 bg-white/15 text-center text-lg font-semibold text-primary-foreground outline-none"
                 />
             ))}
         </div>
