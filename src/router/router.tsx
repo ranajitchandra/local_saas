@@ -18,6 +18,7 @@ import OrdersPage from "@/pages/Dashboard/Orders/OrdersPage"
 import CustomersPage from "@/pages/Dashboard/Customers/CustomersPage"
 import DeliveryCheckoutPage from "@/pages/Dashboard/Orders/OrderDelivery/DeliveryCheckoutPage"
 import DashboardPage from "@/pages/Dashboard/Home/DashboardPage"
+import AnalyticsPage from "@/pages/Dashboard/Analytics/AnalyticsPage"
 
 export const router = createBrowserRouter([
     {
@@ -108,22 +109,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "analytics",
-                element: (
-                    <div className="p-6 lg:p-8 animate-fade-in space-y-6">
-                        <div>
-                            <h1 className="text-3xl font-extrabold tracking-tight text-foreground">Analytics</h1>
-                            <p className="text-sm text-muted-foreground mt-1">
-                                Performance analytics and metrics reporting streams.
-                            </p>
-                        </div>
-                        <div className="border border-border/50 rounded-xl h-96 flex flex-col items-center justify-center text-center p-6 bg-card/40 backdrop-blur-md">
-                            <span className="text-2xl font-bold mb-2 text-foreground">Analytics Telemetry Panel</span>
-                            <span className="text-sm text-muted-foreground max-w-sm">
-                                Deep insights, custom cohorts, and funnels tracking will reside here. Click on Dashboard in the sidebar to return home.
-                            </span>
-                        </div>
-                    </div>
-                )
+                element: <AnalyticsPage />
             },
             {
                 path: "customers",
