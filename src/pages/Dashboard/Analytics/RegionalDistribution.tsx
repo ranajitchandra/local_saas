@@ -30,12 +30,12 @@ export const regionData: RegionData[] = [
 
 export default function RegionalDistribution() {
     return (
-        <div className="rounded-3xl border border-border bg-card p-5 md:p-6">
+        <div className="rounded-3xl border border-border bg-card p-5 md:p-6 space-y-5">
             <h2 className="text-xl font-bold text-foreground">
                 Regional Distribution
             </h2>
 
-            <div className="mt-10 space-y-8">
+            <div className="space-y-4">
                 {regionData.map((region) => (
                     <div key={region.id}>
                         <div className="mb-2 flex items-center justify-between">
@@ -60,11 +60,11 @@ export default function RegionalDistribution() {
                 ))}
             </div>
 
-            <div className="mt-10 overflow-hidden rounded-2xl bg-muted">
+            <div className="overflow-hidden rounded-2xl bg-muted">
                 <img
-                    src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?q=80&w=1200&auto=format&fit=crop"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Hm662098o1_P9m27b3u3DzkWC5r0puO5TiAn1LR3iEafXKFZE3oSUc1QQjTjTO1W89ZuTQS0K9LtKNZicZrLw_CuPViSpPfdBPPFE2ZCcY2MtFmFjp-CxGUC0ico5DliEPy1ZghC_qD-bjKSpY9HccegDhOjfhndOpG-tOzXnfzvKA8x7ZTqcutB1b3q6V7TLXpUlMSG0OSb6Akx6XwsIBKD-P3Z3CLUiBlgSxb-g5HfZPtgo_VFi1n4gZsH001AICK4HiLrC5g"
                     alt="world map"
-                    className="h-40 w-full object-cover"
+                    className="h-50 w-full object-cover"
                 />
             </div>
         </div>
