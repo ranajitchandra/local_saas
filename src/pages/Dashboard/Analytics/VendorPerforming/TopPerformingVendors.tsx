@@ -43,18 +43,34 @@ export const vendors: Vendor[] = [
         sales: "$72,400",
         rating: 4.6,
     },
+    {
+        id: 5,
+        initials: "BB",
+        name: "Bright Bazaar",
+        category: "Beauty & Care",
+        sales: "$68,900",
+        rating: 4.5,
+    },
+    {
+        id: 6,
+        initials: "FS",
+        name: "Fresh Select",
+        category: "Organic Foods",
+        sales: "$61,750",
+        rating: 4.4,
+    },
 ];
 
 export default function TopPerformingVendors() {
     return (
         <div className="rounded-3xl border border-border bg-card p-5 md:p-6">
             <div className="mb-6 flex items-center justify-between">
-                <h2 className="text-xl font-bold">
-                    Top Performing Vendors
+                <h2 className="text-lg md:text-xl font-bold">
+                    Top Vendors
                 </h2>
 
-                <button className="font-semibold text-primary">
-                    View All Vendors
+                <button className="text-sm md:text-base font-semibold text-primary">
+                    All Vendors
                 </button>
             </div>
 
@@ -83,7 +99,7 @@ export default function TopPerformingVendors() {
                                 key={vendor.id}
                                 className="border-b border-border"
                             >
-                                <td className="px-4 py-5">
+                                <td className="sm:px-4 py-2 md:py-3 lg:py-4 xl:py-5">
                                     <div className="flex items-center gap-3">
                                         <div className="flex h-9 w-9 items-center justify-center rounded-md bg-primary/10 font-semibold text-primary">
                                             {vendor.initials}

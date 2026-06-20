@@ -48,7 +48,7 @@ export default function RegionalDistribution() {
                             </span>
                         </div>
 
-                        <div className="h-3 overflow-hidden rounded-full bg-primary/10">
+                        <div className="h-1.5 md:h-2 lg:h-2.5 xl:h-3 overflow-hidden rounded-full bg-primary/10">
                             <div
                                 style={{
                                     width: `${region.percentage}%`,

@@ -84,7 +84,7 @@ export default function AnalyticsStats() {
                                         </span>
                                     </div>
 
-                                    <h3 className="mt-3 text-3xl font-bold tracking-tight text-foreground">
+                                    <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight text-foreground">
                                         {item.value}
                                     </h3>
 
