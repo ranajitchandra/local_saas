@@ -12,7 +12,7 @@ export function StatsCard({
 
     return (
         <div className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-            <div className="mb-5 flex items-start justify-between">
+            <div className="flex items-start justify-between">
 
                 <span className="text-xs font-semibold tracking-[0.15em] text-muted-foreground uppercase">
                     {stat.title}
@@ -23,16 +23,11 @@ export function StatsCard({
                 </div>
             </div>
 
-            <h3 className="mb-2 text-4xl font-bold tracking-tight text-foreground">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-foreground">
                 {stat.value}
             </h3>
 
-            <p
-                className={`text-sm font-medium ${stat.trend === "positive"
-                        ? "text-primary"
-                        : "text-red-500"
-                    }`}
-            >
+            <p className={`text-sm font-medium ${stat.trend === "positive" ? "text-primary" : "text-red-500"}`} >
                 {stat.change}
             </p>
         </div>

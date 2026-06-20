@@ -136,7 +136,7 @@ export default function InventoryList() {
 
                 {/* Filters */}
                 <div className="flex flex-col gap-4 p-6 lg:flex-row lg:items-center lg:justify-between">
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex items-center flex-wrap gap-3">
 
                         <Input
                             placeholder="Search product..."
@@ -144,46 +144,48 @@ export default function InventoryList() {
                             onChange={(e) =>
                                 setSearch(e.target.value)
                             }
-                            className="w-62.5"
+                            className="w-full sm:flex-1  h-10"
                         />
 
-                        <select
-                            value={category}
-                            onChange={(e) =>
-                                setCategory(e.target.value)
-                            }
-                            className="h-10 rounded-lg border bg-background px-3"
-                        >
-                            {categories.map((cat) => (
-                                <option
-                                    key={cat}
-                                    value={cat}
-                                >
-                                    {cat}
-                                </option>
-                            ))}
-                        </select>
+                        <div className="flex justify-between items-center gap-2 ">
+                            <select
+                                value={category}
+                                onChange={(e) =>
+                                    setCategory(e.target.value)
+                                }
+                                className="h-10 rounded-lg border bg-background px-3"
+                            >
+                                {categories.map((cat) => (
+                                    <option
+                                        key={cat}
+                                        value={cat}
+                                    >
+                                        {cat}
+                                    </option>
+                                ))}
+                            </select>
 
-                        <select
-                            value={status}
-                            onChange={(e) =>
-                                setStatus(e.target.value)
-                            }
-                            className="h-10 rounded-lg border bg-background px-3"
-                        >
-                            <option>
-                                All Status
-                            </option>
-                            <option>
-                                In Stock
-                            </option>
-                            <option>
-                                Low Stock
-                            </option>
-                            <option>
-                                Out of Stock
-                            </option>
-                        </select>
+                            <select
+                                value={status}
+                                onChange={(e) =>
+                                    setStatus(e.target.value)
+                                }
+                                className="h-10 rounded-lg border bg-background px-3"
+                            >
+                                <option>
+                                    All Status
+                                </option>
+                                <option>
+                                    In Stock
+                                </option>
+                                <option>
+                                    Low Stock
+                                </option>
+                                <option>
+                                    Out of Stock
+                                </option>
+                            </select>
+                        </div>
                     </div>
 
                     <Button
@@ -236,7 +238,7 @@ export default function InventoryList() {
                                         key={product.id}
                                         className="border-t"
                                     >
-                                        <td className="p-4">
+                                        <td className="p-2.5 md:p-4">
                                             <div className="flex items-center gap-4">
                                                 <img
                                                     src={product.image}

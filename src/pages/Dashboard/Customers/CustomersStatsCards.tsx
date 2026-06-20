@@ -87,12 +87,12 @@ export default function CustomersStatsCards() {
                             </div>
                         </div>
 
-                        <div className="w-full">
+                        <div className="w-full flex justify-between items-center">
                             <p className="text-sm text-muted-foreground">
                                 {item.title}
                             </p>
 
-                            <h3 className="mt-1 text-4xl font-bold tracking-tight text-foreground">
+                            <h3 className="mt-1 text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">
                                 {item.value}
                             </h3>
                         </div>
