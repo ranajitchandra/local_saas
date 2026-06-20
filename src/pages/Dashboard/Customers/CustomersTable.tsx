@@ -145,7 +145,7 @@ export default function CustomersTable() {
                             {filtered.map((customer) => (
                                 <div
                                     key={customer.id}
-                                    className="grid grid-cols-6 items-center border-b border-border px-6 py-5 transition-colors hover:bg-muted/40"
+                                    className="grid grid-cols-6 items-center border-b border-border px-6 py-2.5 md:py-3.5 lg:py-5 transition-colors hover:bg-muted/40"
                                 >
                                     {/* Customer */}
                                     <div className="flex min-w-0 items-center gap-3">
