@@ -1,5 +1,8 @@
 import { CheckCircle2, Package, Truck, MapPin, ShieldCheck, Phone, MessageSquare, CreditCard, Circle } from "lucide-react";
 import OTPInput from "./OTPInput";
+import InputField from "./InputField";
+import PaymentCard from "./PaymentCard";
+import Row from "./Row";
 
 type Product = {
     id: number;
