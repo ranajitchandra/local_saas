@@ -1,5 +1,5 @@
 import AnalyticsStats from "./AnalyticsStats";
-import RevenueAndDristrubution from "./RevenueAndDristrubution";
+import RevenueAndDristrubution from "./RevenueDristubution/RevenueAndDristrubution";
 
 
 
