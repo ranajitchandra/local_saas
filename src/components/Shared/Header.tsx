@@ -52,7 +52,7 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
             <div className="container mx-auto flex items-center justify-between gap-4 px-4 md:px-5 py-4">
 
                 {/* Left Side */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 lg:gap-8">
 
                     {/* Mobile Sidebar */}
                     <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -162,7 +162,7 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
                     </button>
 
                     {/* Cart */}
-                    <div className="text-foreground hover:text-primary transition-colors">
+                    <div className="text-foreground hover:text-primary transition-colors duration-300 ">
                         <CartDropdown />
                     </div>
 
