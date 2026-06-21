@@ -57,50 +57,49 @@ export default function PaymentGateway() {
                     providers.
                 </p>
             </div>
+            <div className="overflow-x-auto">
+                <div className="min-w-100 space-y-4">
+                    {gateways.map((gateway) => {
+                        const Icon = gateway.icon;
 
-            <div className="space-y-4">
-                {gateways.map((gateway) => {
-                    const Icon = gateway.icon;
+                        return (
+                            <div
+                                key={gateway.id}
+                                className="flex justify-between gap-4 rounded-xl border p-4 md:flex-row md:items-center md:justify-between"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <div className="rounded-lg bg-primary/10 p-3">
+                                        <Icon className="h-5 w-5 text-primary" />
+                                    </div>
 
-                    return (
-                        <div
-                            key={gateway.id}
-                            className="flex flex-col gap-4 rounded-xl border p-4 md:flex-row md:items-center md:justify-between"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="rounded-lg bg-primary/10 p-3">
-                                    <Icon className="h-5 w-5 text-primary" />
+                                    <div className="space-y-0.5">
+                                        <div className="flex items-center gap-4">
+                                            <h3 className="font-medium">
+                                                {gateway.name}
+                                            </h3>
+                                            <span className={`rounded-full px-3 py-1 text-xs font-medium ${gateway.status ===
+                                                "Active"
+                                                ? "bg-green-100 text-green-700"
+                                                : "bg-red-100 text-red-700"
+                                                }`}
+                                            >
+                                                {gateway.status}
+                                            </span>
+                                        </div>
+
+                                        <p className="text-sm text-muted-foreground">
+                                            {gateway.provider}
+                                        </p>
+                                    </div>
                                 </div>
-
-                                <div>
-                                    <h3 className="font-medium">
-                                        {gateway.name}
-                                    </h3>
-
-                                    <p className="text-sm text-muted-foreground">
-                                        {gateway.provider}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4">
-                                <span
-                                    className={`rounded-full px-3 py-1 text-xs font-medium ${gateway.status ===
-                                            "Active"
-                                            ? "bg-green-100 text-green-700"
-                                            : "bg-red-100 text-red-700"
-                                        }`}
-                                >
-                                    {gateway.status}
-                                </span>
 
                                 <button className="rounded-lg border px-4 py-2 text-sm">
                                     Configure
                                 </button>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
