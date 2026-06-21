@@ -19,6 +19,12 @@ import CustomersPage from "@/pages/Dashboard/Customers/CustomersPage"
 import DeliveryCheckoutPage from "@/pages/Dashboard/Orders/OrderDelivery/DeliveryCheckoutPage"
 import DashboardPage from "@/pages/Dashboard/Home/DashboardPage"
 import AnalyticsPage from "@/pages/Dashboard/Analytics/AnalyticsPage"
+import CompanyProfile from "@/pages/Dashboard/Settings/CompanyProfile"
+import Notifications from "@/pages/Dashboard/Settings/Notifications"
+import DashboardSettingsLayout from "@/layouts/DashboardSettingsLayout"
+import PaymentGateway from "@/pages/Dashboard/Settings/PaymentGateway"
+import RolePermissions from "@/pages/Dashboard/Settings/RolePermissions"
+import SecurityAccess from "@/pages/Dashboard/Settings/SecurityAccess"
 
 export const router = createBrowserRouter([
     {
@@ -116,43 +122,35 @@ export const router = createBrowserRouter([
                 element: <CustomersPage />
             },
             {
-                path: "billing",
-                element: (
-                    <div className="p-6 lg:p-8 animate-fade-in space-y-6">
-                        <div>
-                            <h1 className="text-3xl font-extrabold tracking-tight text-foreground">Billing & Plans</h1>
-                            <p className="text-sm text-muted-foreground mt-1">
-                                Subscriptions, invoices, and organization payment config.
-                            </p>
-                        </div>
-                        <div className="border border-border/50 rounded-xl h-96 flex flex-col items-center justify-center text-center p-6 bg-card/40 backdrop-blur-md">
-                            <span className="text-2xl font-bold mb-2 text-foreground">Billing & Subscriptions Control</span>
-                            <span className="text-sm text-muted-foreground max-w-sm">
-                                Stripe invoicing integrations, upgrade cards, and subscription quotas will reside here. Click on Dashboard in the sidebar to return home.
-                            </span>
-                        </div>
-                    </div>
-                )
-            },
-            {
                 path: "settings",
-                element: (
-                    <div className="p-6 lg:p-8 animate-fade-in space-y-6">
-                        <div>
-                            <h1 className="text-3xl font-extrabold tracking-tight text-foreground">Settings</h1>
-                            <p className="text-sm text-muted-foreground mt-1">
-                                Preferences and configuration panel for the SaaS instance.
-                            </p>
-                        </div>
-                        <div className="border border-border/50 rounded-xl h-96 flex flex-col items-center justify-center text-center p-6 bg-card/40 backdrop-blur-md">
-                            <span className="text-2xl font-bold mb-2 text-foreground">Admin Configuration Console</span>
-                            <span className="text-sm text-muted-foreground max-w-sm">
-                                Multi-factor auth keys, webhooks, workspace names, and access control scopes will reside here. Click on Dashboard in the sidebar to return home.
-                            </span>
-                        </div>
-                    </div>
-                )
-            }
+                element: <DashboardSettingsLayout />,
+                children: [
+                    {
+                        index: true,
+                        element: <Navigate to="company-profile" replace />
+                    },
+                    {
+                        path: "company-profile",
+                        element: <CompanyProfile />,
+                    },
+                    {
+                        path: "notifications",
+                        element: <Notifications />,
+                    },
+                    {
+                        path: "payment-gateway",
+                        element: <PaymentGateway />,
+                    },
+                    {
+                        path: "role-permissions",
+                        element: <RolePermissions />,
+                    },
+                    {
+                        path: "security-access",
+                        element: <SecurityAccess />,
+                    },
+                ],
+            },
         ]
     }
 ])

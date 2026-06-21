@@ -71,7 +71,6 @@ export function DashboardLayout() {
         { name: "Customers", path: "/dashboard/customers", icon: <Users className="h-4 w-4" /> },
         { name: "Inventory", path: "/dashboard/inventory", icon: <Cylinder className="h-4 w-4" /> },
         { name: "Orders", path: "/dashboard/orders", icon: <ListOrdered className="h-4 w-4" /> },
-        { name: "Billing & Plans", path: "/dashboard/billing", icon: <CreditCard className="h-4 w-4" /> },
         { name: "Settings", path: "/dashboard/settings", icon: <Settings className="h-4 w-4" /> },
     ]
 
