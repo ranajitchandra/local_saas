@@ -48,7 +48,7 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <header className="w-full bg-background/90 backdrop-blur-md border-b border-border sticky top-0 z-40">
+        <header className="w-full bg-background/90 backdrop-blur-md border-b border-border fixed top-0 z-40">
             <div className="container mx-auto flex items-center justify-between gap-4 px-4 md:px-5 py-4">
 
                 {/* Left Side */}

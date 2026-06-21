@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { Outlet, useLocation } from "react-router"
-import { LayoutDashboard, BarChart3, Users, CreditCard, Settings, Cylinder, ListOrdered } from "lucide-react"
+import { LayoutDashboard, BarChart3, Users, Settings, Cylinder, ListOrdered } from "lucide-react"
 
 // Import custom sub-components
 import { Sidebar } from "@/components/layout/Sidebar"
-import { Header } from "@/components/layout/DashboardHeader"
+import { DashboardHeader } from "@/components/layout/DashboardHeader"
 import { MobileDrawer } from "@/components/layout/MobileDrawer"
 import { SearchDialog } from "@/components/layout/SearchDialog"
 
@@ -71,7 +71,6 @@ export function DashboardLayout() {
         { name: "Customers", path: "/dashboard/customers", icon: <Users className="h-4 w-4" /> },
         { name: "Inventory", path: "/dashboard/inventory", icon: <Cylinder className="h-4 w-4" /> },
         { name: "Orders", path: "/dashboard/orders", icon: <ListOrdered className="h-4 w-4" /> },
-        { name: "Billing & Plans", path: "/dashboard/billing", icon: <CreditCard className="h-4 w-4" /> },
         { name: "Settings", path: "/dashboard/settings", icon: <Settings className="h-4 w-4" /> },
     ]
 
@@ -86,7 +85,7 @@ export function DashboardLayout() {
     const getPageTitle = () => {
         const currentPath = location.pathname
         const activeItem = navItems.find(item => item.path === currentPath)
-        return activeItem ? activeItem.name : "Console"
+        return activeItem ? activeItem.name : "Settings"
     }
 
     return (
@@ -120,7 +119,7 @@ export function DashboardLayout() {
 
             {/* Main Application Canvas Panel */}
             <div className="flex-1 flex flex-col overflow-hidden">
-                <Header
+                <DashboardHeader
                     onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
                     onOpenSearch={() => setIsSearchOpen(true)}
                     isDarkMode={isDarkMode}
