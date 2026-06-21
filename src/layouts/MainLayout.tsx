@@ -35,7 +35,7 @@ export function MainLayout() {
 
     return (
         <CartProvider>
-            <div className="quickmart-theme min-h-screen w-screen bg-background text-foreground transition-colors duration-200 flex flex-col">
+            <div className="quickmart-theme min-h-screen bg-background text-foreground transition-colors duration-200 flex flex-col">
                 <Header isDarkMode={isDarkMode} onToggleDarkMode={toggleDarkMode} />
                 {/* Structural outlet block to support potential child subroutes */}
                 <div className="container mx-auto flex-1 bg-background text-foreground px-4 md:px-5">
