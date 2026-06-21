@@ -23,15 +23,8 @@ interface HeaderProps {
   notifications: Notification[]
 }
 
-export function Header({
-  onOpenMobileMenu,
-  onOpenSearch,
-  isDarkMode,
-  onToggleDarkMode,
-  pageTitle,
-  user,
-  notifications
-}: HeaderProps) {
+export function DashboardHeader({ onOpenMobileMenu, onOpenSearch, isDarkMode, onToggleDarkMode, pageTitle, user, notifications }: HeaderProps) {
+  
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false)
   const [isProfileOpen, setIsProfileOpen] = useState(false)
 
@@ -60,7 +53,7 @@ export function Header({
 
       {/* Header Right (Search + DarkMode + Alerts + Avatar) */}
       <div className="flex items-center gap-3">
-        
+
         {/* Command Search Bar Trigger */}
         <button
           onClick={onOpenSearch}
@@ -97,9 +90,8 @@ export function Header({
               setIsNotificationsOpen(!isNotificationsOpen)
               setIsProfileOpen(false)
             }}
-            className={`rounded-lg p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-all relative cursor-pointer ${
-              isNotificationsOpen ? "bg-muted text-foreground" : ""
-            }`}
+            className={`rounded-lg p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-all relative cursor-pointer ${isNotificationsOpen ? "bg-muted text-foreground" : ""
+              }`}
           >
             <Bell className="h-4.5 w-4.5" />
             <span className="absolute top-1 right-1 flex h-2 w-2">
@@ -112,7 +104,7 @@ export function Header({
             <>
               {/* Overlay cover to close when clicking outside */}
               <div className="fixed inset-0 z-40" onClick={closeDropdowns} />
-              
+
               <div className="absolute right-0 mt-2 w-80 overflow-hidden rounded-xl border border-border bg-card shadow-xl animate-in fade-in duration-200 z-50">
                 <div className="flex items-center justify-between border-b border-border/50 px-4 py-3 bg-muted/20">
                   <span className="text-xs font-bold text-foreground">Notifications</span>
@@ -146,9 +138,8 @@ export function Header({
               setIsProfileOpen(!isProfileOpen)
               setIsNotificationsOpen(false)
             }}
-            className={`flex items-center gap-1.5 rounded-lg pl-1.5 pr-2.5 py-1 text-sm font-semibold hover:bg-muted transition-all select-none border border-transparent cursor-pointer ${
-              isProfileOpen ? "bg-muted border-border/50" : ""
-            }`}
+            className={`flex items-center gap-1.5 rounded-lg pl-1.5 pr-2.5 py-1 text-sm font-semibold hover:bg-muted transition-all select-none border border-transparent cursor-pointer ${isProfileOpen ? "bg-muted border-border/50" : ""
+              }`}
           >
             <div className="h-7 w-7 rounded-full bg-primary/15 text-primary flex items-center justify-center font-extrabold text-xs border border-primary/20">
               {user.initial}
@@ -160,7 +151,7 @@ export function Header({
             <>
               {/* Overlay cover to close when clicking outside */}
               <div className="fixed inset-0 z-40" onClick={closeDropdowns} />
-              
+
               <div className="absolute right-0 mt-2 w-56 overflow-hidden rounded-xl border border-border bg-card shadow-xl animate-in fade-in duration-200 z-50">
                 <div className="p-3.5 border-b border-border/50 bg-muted/20">
                   <div className="text-xs font-bold text-foreground">Ranajit Roy</div>
