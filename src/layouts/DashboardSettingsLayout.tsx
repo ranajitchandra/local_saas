@@ -5,7 +5,7 @@ export default function DashboardSettingsLayout() {
     return (
         <div className="quickmart-theme min-h-screen bg-background">
             <div className="w-full">
-                <div className="flex flex-col gap-6 lg:flex-row">
+                <div className="flex flex-col gap-5 lg:flex-row">
                     <SettingsSidebar />
 
                     <div className="flex-1">

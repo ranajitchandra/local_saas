@@ -35,7 +35,7 @@ const sessions: Session[] = [
 export default function SecurityAccess() {
     return (
         <div className="space-y-6">
-            <div className="rounded-2xl border bg-card p-6 shadow-sm">
+            <div className="rounded-2xl border bg-card p-5 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                     <KeyRound className="h-5 w-5 text-primary" />
 
@@ -44,7 +44,7 @@ export default function SecurityAccess() {
                     </h2>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 items-center gap-5">
                     <div className="rounded-xl border p-4">
                         <h3 className="font-medium">
                             Two-Factor Authentication
@@ -77,7 +77,7 @@ export default function SecurityAccess() {
                 </div>
             </div>
 
-            <div className="rounded-2xl border bg-card p-6 shadow-sm">
+            <div className="rounded-2xl border bg-card p-5 shadow-sm">
                 <div className="mb-6 flex items-center gap-3">
                     <Monitor className="h-5 w-5 text-primary" />
 
