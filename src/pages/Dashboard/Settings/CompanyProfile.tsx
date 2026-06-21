@@ -14,9 +14,9 @@ export default function CompanyProfile() {
             <div className="mb-6 flex flex-col gap-4 sm:flex-row">
                 <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-dashed bg-muted">
                     <img
-                        src="https://placehold.co/60x60"
-                        alt="logo"
-                        className="h-12 w-12"
+                        src="https://randomuser.me/api/portraits/men/32.jpg"
+                        alt="User Avatar"
+                        className="h-12 w-12 rounded-full object-cover"
                     />
                 </div>
 
