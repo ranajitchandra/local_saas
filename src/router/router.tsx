@@ -93,6 +93,7 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    // Dashboard
     {
         path: "/dashboard",
         element: <DashboardLayout />,
