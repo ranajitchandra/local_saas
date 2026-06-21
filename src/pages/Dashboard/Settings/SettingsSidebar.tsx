@@ -3,9 +3,9 @@ import { NavLink } from "react-router";
 
 export default function SettingsSidebar() {
     return (
-        <aside className="w-full lg:w-72">
+        <aside className="w-full lg:w-60">
             <div className="rounded-2xl border bg-card p-3">
-                <div className="space-y-1">
+                <div className="flex flex-row lg:flex-col items-center lg:items-start justify-between space-y-1">
                     {settingsMenus.map((menu) => {
                         const Icon = menu.icon;
 
@@ -14,7 +14,7 @@ export default function SettingsSidebar() {
                                 key={menu.id}
                                 to={menu.path}
                                 className={({ isActive }) =>
-                                    `flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200
+                                    `w-fit lg:w-full flex flex-col lg:flex-row items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200
                                     ${isActive
                                         ? "bg-primary text-primary-foreground shadow-sm"
                                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -23,8 +23,8 @@ export default function SettingsSidebar() {
                             >
                                 {({ isActive }) => (
                                     <>
-                                        <Icon className={`h-4 w-4 ${isActive ? "text-primary-foreground" : ""}`} />
-                                        <span className="hidden md:block"> {menu.label} </span>
+                                        <Icon className={`h-5 w-5 lg:h-4 lg:w-4 ${isActive ? "text-primary-foreground" : ""}`} />
+                                        <span className="hidden lg:block"> {menu.label} </span>
                                     </>
                                 )}
                             </NavLink>
