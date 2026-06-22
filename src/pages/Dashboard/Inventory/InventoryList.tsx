@@ -18,8 +18,7 @@ import type { Product } from "@/types/inventory";
 const inventoryProducts = _inventoryProducts as Product[];
 
 export default function InventoryList() {
-    const [products, setProducts] =
-        useState<Product[]>(inventoryProducts);
+    const [products, setProducts] = useState<Product[]>(inventoryProducts);
 
     const [open, setOpen] = useState(false);
     const [editing, setEditing] =
