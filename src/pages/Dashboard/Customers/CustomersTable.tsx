@@ -97,7 +97,7 @@ export default function CustomersTable() {
             : customers.filter((c) => c.tier === activeTab);
 
     return (
-        <div className="quickmart-theme min-h-screen bg-background">
+        <div className="quickmart-theme bg-background">
             <Card className="overflow-hidden border-border bg-card shadow-sm">
                 {/* Header */}
                 <div className="flex flex-col gap-4 border-b border-border p-4 md:flex-row md:items-center md:justify-between">

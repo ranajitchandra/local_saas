@@ -103,6 +103,14 @@ export const router = createBrowserRouter([
                 element: <DashboardPage />,
             },
             {
+                path: "analytics",
+                element: <AnalyticsPage />
+            },
+            {
+                path: "customers",
+                element: <CustomersPage />
+            },
+            {
                 path: "inventory",
                 element: <InventoryPage />
             },
@@ -113,14 +121,6 @@ export const router = createBrowserRouter([
             {
                 path: "orders/order-delivery-checkout",
                 element: <DeliveryCheckoutPage />
-            },
-            {
-                path: "analytics",
-                element: <AnalyticsPage />
-            },
-            {
-                path: "customers",
-                element: <CustomersPage />
             },
             {
                 path: "settings",
