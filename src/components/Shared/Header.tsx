@@ -9,6 +9,7 @@ import {
     Handshake,
     Sun,
     Moon,
+    ArrowBigRightDash,
 } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router";
@@ -147,15 +148,6 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
 
                 {/* Right Side */}
                 <div className="flex items-center gap-4 md:gap-6 shrink-0">
-
-                    {/* Location */}
-                    <div className="hidden sm:flex items-center gap-1.5 text-foreground/80">
-                        <MapPin className="h-5 w-5 text-primary" />
-                        <span className="text-xs font-semibold">
-                            New York
-                        </span>
-                    </div>
-
                     {/* Wishlist */}
                     <button className="hidden ml:block text-foreground hover:text-red-500 transition-colors">
                         <Heart className="h-5 w-5" />
@@ -182,6 +174,19 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
                         <button className="text-foreground hover:text-primary transition-colors">
                             <User className="h-5 w-5" />
                         </button>
+                    </Link>
+                    <Link to="/auth" className="hover:scale-105 transition-all duration-300">
+                        <button className="text-xs font-semibold bg-primary text-primary-foreground px-3 py-1 rounded-xl cursor-pointer">
+                            Login
+                        </button>
+                    </Link>
+                    <Link to="/dashboard" className="hover:scale-105 transition-all duration-300">
+                        <span className="hidden md:block text-xs font-semibold bg-primary text-primary-foreground px-3 py-1 rounded-xl">
+                            cPanel
+                        </span>
+                        <span className="md:hidden text-primary hover:text-primary transition-colors">
+                            <ArrowBigRightDash />
+                        </span>
                     </Link>
                 </div>
             </div>
