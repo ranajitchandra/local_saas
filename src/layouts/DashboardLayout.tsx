@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "react-router"
 import { LayoutDashboard, BarChart3, Users, Settings, Cylinder, ListOrdered } from "lucide-react"
 
 // Import custom sub-components
-import { Sidebar } from "@/components/layout/Sidebar"
+import { DashboardSidebar } from "@/components/layout/DashboardSidebar"
 import { DashboardHeader } from "@/components/layout/DashboardHeader"
 import { MobileDrawer } from "@/components/layout/MobileDrawer"
 import { SearchDialog } from "@/components/layout/SearchDialog"
@@ -110,7 +110,7 @@ export function DashboardLayout() {
             />
 
             {/* Desktop Sidebar Navigation */}
-            <Sidebar
+            <DashboardSidebar
                 isCollapsed={isSidebarCollapsed}
                 onToggleCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
                 navItems={navItems}
