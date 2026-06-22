@@ -1,5 +1,7 @@
-import { settingsMenus } from "@/Mock_Data/Dashboard/settings";
+import { settingsMenus as _settingsMenus } from "@/data/dashboard/settings";
+import type { SettingMenu } from "@/types/dashboard/settings";
 import { NavLink } from "react-router";
+const settingsMenus = _settingsMenus as SettingMenu[];
 
 export default function SettingsSidebar() {
     return (

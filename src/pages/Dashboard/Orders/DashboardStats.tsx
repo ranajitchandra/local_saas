@@ -1,6 +1,8 @@
-import { dashboardStats } from "@/Mock_Data/Dashboard/orders";
+import { dashboardStats as _dashboardStats } from "@/data/dashboard/orders";
+import type { DashboardStat } from "@/types/dashboard/order";
 import { StatsCard } from "./StatsCard";
 
+const dashboardStats = _dashboardStats as DashboardStat[];
 
 export default function DashboardStats() {
     return (

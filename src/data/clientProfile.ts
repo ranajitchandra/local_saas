@@ -1,7 +1,4 @@
-
-import type { Order, UserProfile } from "@/types/clientProfile";
-
-export const user: UserProfile = {
+export const user = {
     fullName: "Alex Harrison",
     email: "alex.harrison@techcloud.com",
     phone: "+1 (555) 012-3456",
@@ -10,7 +7,7 @@ export const user: UserProfile = {
     memberSince: "2021",
 };
 
-export const orders: Order[] = [
+export const orders = [
     {
         id: "#ORD-1001",
         total: 120,
@@ -24,4 +21,3 @@ export const orders: Order[] = [
         date: "2026-06-13",
     },
 ];
-

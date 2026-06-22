@@ -1,120 +1,4 @@
-
-
-import type { CartItem } from "@/types/cart.types";
-import type { Category } from "@/types/category";
-import type { FeatureItem } from "@/types/features";
-import type { Offer } from "@/types/offer";
-import type { DealProduct, ElectronicsProduct, FashionProduct, FeaturedProduct, GroceryProduct } from "@/types/product";
-import { ShoppingCart, Cross, Monitor, Shirt, House, PawPrint, Smartphone, BookOpen, Baby, Dumbbell, Gamepad2, Sofa, Car, Sparkles, UtensilsCrossed, Flower2, Watch, Briefcase, Ticket, Gem } from "lucide-react";
-import { Zap, ShieldCheck, Lock, Headphones } from "lucide-react";
-
-
-
-
-export const categories: Category[] = [
-    {
-        id: "1",
-        name: "Grocery",
-        icon: ShoppingCart,
-    },
-    {
-        id: "2",
-        name: "Medical",
-        icon: Cross,
-    },
-    {
-        id: "3",
-        name: "Electronics",
-        icon: Monitor,
-    },
-    {
-        id: "4",
-        name: "Fashion",
-        icon: Shirt,
-    },
-    {
-        id: "5",
-        name: "Household",
-        icon: House,
-    },
-    {
-        id: "6",
-        name: "Pet Care",
-        icon: PawPrint,
-    },
-    {
-        id: "7",
-        name: "Mobiles",
-        icon: Smartphone,
-    },
-    {
-        id: "8",
-        name: "Books",
-        icon: BookOpen,
-    },
-    {
-        id: "9",
-        name: "Baby Care",
-        icon: Baby,
-    },
-    {
-        id: "10",
-        name: "Fitness",
-        icon: Dumbbell,
-    },
-    {
-        id: "11",
-        name: "Gaming",
-        icon: Gamepad2,
-    },
-    {
-        id: "12",
-        name: "Furniture",
-        icon: Sofa,
-    },
-    {
-        id: "13",
-        name: "Automotive",
-        icon: Car,
-    },
-    {
-        id: "14",
-        name: "Beauty",
-        icon: Sparkles,
-    },
-    {
-        id: "15",
-        name: "Food",
-        icon: UtensilsCrossed,
-    },
-    {
-        id: "16",
-        name: "Garden",
-        icon: Flower2,
-    },
-    {
-        id: "17",
-        name: "Accessories",
-        icon: Watch,
-    },
-    {
-        id: "18",
-        name: "Office",
-        icon: Briefcase,
-    },
-    {
-        id: "19",
-        name: "Tickets",
-        icon: Ticket,
-    },
-    {
-        id: "20",
-        name: "Jewelry",
-        icon: Gem,
-    },
-];
-
-export const featuredProducts: FeaturedProduct[] = [
+export const featuredProducts = [
     {
         id: "1",
         name: "Premium Noise-Cancelling Headphones",
@@ -192,10 +76,9 @@ export const featuredProducts: FeaturedProduct[] = [
             "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500",
         badge: "NEW",
     },
-
 ];
 
-export const groceryproducts: GroceryProduct[] = [
+export const groceryproducts = [
     {
         id: "g-1",
         name: "Organic Fuji Apples",
@@ -284,9 +167,9 @@ export const groceryproducts: GroceryProduct[] = [
         price: "$12.99",
         image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&auto=format&fit=crop&q=80"
     }
-]
+];
 
-export const electronicsproducts: ElectronicsProduct[] = [
+export const electronicsproducts = [
     {
         id: "e-1",
         name: "Noise Cancelling Pro",
@@ -327,9 +210,9 @@ export const electronicsproducts: ElectronicsProduct[] = [
         price: "$129.00",
         image: "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=400&auto=format&fit=crop&q=80"
     }
-]
+];
 
-export const fashionproducts: FashionProduct[] = [
+export const fashionproducts = [
     {
         id: "f-1",
         name: "Velocity Running Shoes",
@@ -370,148 +253,9 @@ export const fashionproducts: FashionProduct[] = [
         price: "$78.00",
         image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&q=80"
     }
-]
-
-export const offers: Offer[] = [
-    {
-        id: 1,
-        title: "Up to 40% Off Fresh Groceries",
-        subtitle: "WEEKLY FRESHNESS",
-        description:
-            "Get the freshest farm-to-table produce delivered within 2 hours of your order.",
-        image:
-            "https://images.unsplash.com/photo-1542838132-92c53300491e",
-        buttonText: "Claim Discount",
-        size: "large",
-    },
-    {
-        id: 2,
-        title: "Tech Clearance",
-        subtitle: "Flash sale on previous gen electronics.",
-        description: "",
-        image:
-            "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931",
-        buttonText: "Shop Now",
-        size: "small",
-    },
-    {
-        id: 3,
-        title: "Fashion Forward",
-        subtitle: "Exclusive autumn collection now live.",
-        description: "",
-        image:
-            "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
-        buttonText: "View Collection",
-        size: "small",
-    },
 ];
 
-export const features: FeatureItem[] = [
-    {
-        id: 1,
-        title: "Fast Delivery",
-        description: "Get your orders within 60 minutes for local stores.",
-        icon: Zap,
-    },
-    {
-        id: 2,
-        title: "Verified Vendors",
-        description: "We only partner with trusted and certified businesses.",
-        icon: ShieldCheck,
-    },
-    {
-        id: 3,
-        title: "Secure Payment",
-        description: "Multiple encrypted payment gateways available.",
-        icon: Lock,
-    },
-    {
-        id: 4,
-        title: "24/7 Support",
-        description: "Our dedicated team is always here to help you.",
-        icon: Headphones,
-    },
-];
-
-export const initialCartItems: CartItem[] = [
-    {
-        id: 1,
-        name: "Pro Runner X1",
-        details: "Size: 42 | Color: Aurora Teal",
-        price: 129,
-        qty: 1,
-        image:
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
-    },
-    {
-        id: 2,
-        name: "CyberPack 2.0",
-        details: "Capacity: 25L | Material: Cordura",
-        price: 85,
-        qty: 1,
-        image:
-            "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=400",
-    },
-];
-
-export const browseCategoryItems = [
-    {
-        id: 1,
-        title: "High-End Electronics",
-        subtitle: "TECH EXCLUSIVE",
-        description:
-            "Up to 45% off professional workstations and peripherals.",
-        image:
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200",
-    },
-    {
-        id: 2,
-        title: "Luxury Apparel",
-        subtitle: "SEASONAL DEALS",
-        description:
-            "New arrivals in curated fashion with membership discounts.",
-        image:
-            "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200",
-    },
-    {
-        id: 3,
-        title: "Smart Living",
-        subtitle: "HOME ESSENTIALS",
-        description:
-            "Upgrade your space with intelligent home automation gear.",
-        image:
-            "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200",
-    },
-    {
-        id: 4,
-        title: "High-End Electronics",
-        subtitle: "TECH EXCLUSIVE",
-        description:
-            "Up to 45% off professional workstations and peripherals.",
-        image:
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200",
-    },
-    {
-        id: 5,
-        title: "Luxury Apparel",
-        subtitle: "SEASONAL DEALS",
-        description:
-            "New arrivals in curated fashion with membership discounts.",
-        image:
-            "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200",
-    },
-    {
-        id: 6,
-        title: "Smart Living",
-        subtitle: "HOME ESSENTIALS",
-        description:
-            "Upgrade your space with intelligent home automation gear.",
-        image:
-            "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200",
-    },
-];
-
-export const topDeals: DealProduct[] = [
+export const topDeals = [
     {
         id: 1,
         category: "AUDIO ENGINEERING",
@@ -576,22 +320,3 @@ export const topDeals: DealProduct[] = [
         oldPrice: 849,
     },
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

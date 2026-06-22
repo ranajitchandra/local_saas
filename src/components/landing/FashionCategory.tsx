@@ -5,7 +5,9 @@ import { Shirt, ArrowRight } from "lucide-react"
 import { ProductCard } from "./ProductCard"
 import { SwiperNavigation } from "./SwiperNavigation"
 import "swiper/css"
-import { fashionproducts } from "@/Mock_Data/data"
+import { fashionproducts as _fashionproducts } from "@/data/products"
+import type { FashionProduct } from "@/types/product";
+const fashionproducts = _fashionproducts as FashionProduct[];
 
 export function FashionCategory() {
 

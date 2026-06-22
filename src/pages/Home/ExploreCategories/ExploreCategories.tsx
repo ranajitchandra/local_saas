@@ -3,7 +3,9 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import { SwiperNavigation } from "@/components/landing/SwiperNavigation";
 import { ArrowRight } from "lucide-react";
-import { categories } from "@/Mock_Data/data";
+import { categories as _categories } from "@/data/landing";
+import type { Category } from "@/types/category";
+const categories = _categories as Category[];
 
 
 export function ExploreCategories() {

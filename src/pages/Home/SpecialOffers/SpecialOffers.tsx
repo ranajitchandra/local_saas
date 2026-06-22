@@ -1,4 +1,6 @@
-import { offers } from "@/Mock_Data/data";
+import { offers as _offers } from "@/data/landing";
+import type { Offer } from "@/types/offer";
+const offers = _offers as Offer[];
 
 
 export default function SpecialOffers() {

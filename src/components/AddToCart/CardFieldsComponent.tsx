@@ -1,8 +1,9 @@
 import { Controller } from "react-hook-form";
 import type { FieldErrors, Control } from "react-hook-form";
+
 import { INPUT_NORMAL, INPUT_ERROR } from "./constants";
 import { formatCardNumber, formatExpiry } from "./helpers";
-import type { OrderFormValues } from "./types";
+import type { OrderFormValues } from "@/types/cart.types";
 
 interface CardFieldsProps {
     control: Control<OrderFormValues>;

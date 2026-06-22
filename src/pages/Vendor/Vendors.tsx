@@ -10,7 +10,9 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination";
-import { vendors } from "@/Mock_Data/vendor";
+import { vendors as _vendors } from "@/data/vendor";
+import type { Vendor } from "@/types/vendor";
+const vendors = _vendors as Vendor[];
 
 const categories = [
     "All Vendors",

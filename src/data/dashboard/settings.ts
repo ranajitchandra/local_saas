@@ -1,10 +1,6 @@
-import type { NotificationSetting, SettingMenu } from "@/types/dashboard/settings";
-
-
-
 import { Building2, Bell, CreditCard, ShieldCheck, LockKeyhole } from "lucide-react";
 
-export const settingsMenus: SettingMenu[] = [
+export const settingsMenus = [
     {
         id: "1",
         label: "Company Profile",
@@ -37,7 +33,7 @@ export const settingsMenus: SettingMenu[] = [
     },
 ];
 
-export const notificationSettings: NotificationSetting[] = [
+export const notificationSettings = [
     {
         id: "1",
         title: "New Vendor Registration",

@@ -1,24 +1,13 @@
 import React from "react"
 import { NavLink } from "react-router"
 import { ChevronLeft, ChevronRight, Sparkles, LogOut } from "lucide-react"
-
-interface NavItem {
-  name: string
-  path: string
-  icon: React.ReactNode
-  badge?: string
-  end?: boolean
-}
+import type { NavItem, DashboardUser } from "@/types/layout";
 
 interface SidebarProps {
   isCollapsed: boolean
   onToggleCollapse: () => void
   navItems: NavItem[]
-  user: {
-    name: string
-    email: string
-    initial: string
-  }
+  user: DashboardUser
 }
 
 export function Sidebar({ isCollapsed, onToggleCollapse, navItems, user }: SidebarProps) {

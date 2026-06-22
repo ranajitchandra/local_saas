@@ -1,7 +1,4 @@
-import type { Product } from "@/types/inventory";
-
-
-export const inventoryProducts: Product[] = [
+export const inventoryProducts = [
     {
         id: 1,
         image: "https://picsum.photos/80?1",
@@ -13,7 +10,7 @@ export const inventoryProducts: Product[] = [
         status: "In Stock",
     },
     {
-        id: 2 ,
+        id: 2,
         image: "https://picsum.photos/80?2",
         name: "ActiveFlow Running Shoes",
         sku: "SPRT-SH-224",

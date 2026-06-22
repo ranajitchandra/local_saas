@@ -5,7 +5,9 @@ import { ShoppingBag, ArrowRight } from "lucide-react"
 import { ProductCard } from "./ProductCard"
 import { SwiperNavigation } from "./SwiperNavigation"
 import "swiper/css"
-import { groceryproducts } from "@/Mock_Data/data"
+import { groceryproducts as _groceryproducts } from "@/data/products"
+import type { GroceryProduct } from "@/types/product";
+const groceryproducts = _groceryproducts as GroceryProduct[];
 
 export function GroceryCategory() {
   

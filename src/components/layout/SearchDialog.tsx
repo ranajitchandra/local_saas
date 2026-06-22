@@ -1,12 +1,6 @@
 import React from "react"
 import { Search, Command, HelpCircle, ArrowRight, Sun, Moon } from "lucide-react"
-
-interface NavItem {
-  name: string
-  path: string
-  icon: React.ReactNode
-  badge?: string
-}
+import type { NavItem } from "@/types/layout";
 
 interface SearchDialogProps {
   isOpen: boolean

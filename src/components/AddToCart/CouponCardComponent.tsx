@@ -1,7 +1,7 @@
 import type { UseFormSetValue, UseFormRegister } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import type { OrderFormValues } from "./types";
+import type { OrderFormValues } from "@/types/cart.types";
 
 interface CouponCardProps {
     onApply?: () => void;

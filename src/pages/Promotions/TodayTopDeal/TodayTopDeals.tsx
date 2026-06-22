@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { DealCard } from "./DealCard";
-import { topDeals } from "@/Mock_Data/data";
+import { topDeals as _topDeals } from "@/data/products";
+import type { DealProduct } from "@/types/product";
+const topDeals = _topDeals as DealProduct[];
 
 export function TodayTopDeals() {
     return (

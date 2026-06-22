@@ -13,8 +13,9 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
 import InventoryModal from "./Modals/InventoryModal";
-import { inventoryProducts } from "@/Mock_Data/inventoryData";
+import { inventoryProducts as _inventoryProducts } from "@/data/inventory";
 import type { Product } from "@/types/inventory";
+const inventoryProducts = _inventoryProducts as Product[];
 
 export default function InventoryList() {
     const [products, setProducts] =

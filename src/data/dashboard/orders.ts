@@ -1,7 +1,6 @@
-import type { DashboardStat, Order, TeamMember } from "@/types/dashboard/order";
+import { ShoppingCart, PackageCheck, Truck, Wallet } from "lucide-react";
 
-
-export const teamMembers: TeamMember[] = [
+export const teamMembers = [
     {
         id: 1,
         name: "William Anderson",
@@ -19,7 +18,7 @@ export const teamMembers: TeamMember[] = [
     },
 ];
 
-export const orders: Order[] = [
+export const orders = [
     {
         id: "#QM-82910",
         customer: "Ethan Hunt",
@@ -62,15 +61,7 @@ export const orders: Order[] = [
     },
 ];
 
-import {
-    ShoppingCart,
-    PackageCheck,
-    Truck,
-    Wallet,
-} from "lucide-react";
-
-
-export const dashboardStats: DashboardStat[] = [
+export const dashboardStats = [
     {
         id: 1,
         title: "TOTAL ORDERS",
@@ -104,15 +95,3 @@ export const dashboardStats: DashboardStat[] = [
         icon: Wallet,
     },
 ];
-
-
-
-
-
-
-
-
-
-
-
-

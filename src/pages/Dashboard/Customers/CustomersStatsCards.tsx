@@ -1,8 +1,9 @@
 
 import { TrendingUp, TrendingDown, Users, ShoppingBag, Clock, DollarSign } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { orders } from "@/Mock_Data/Dashboard/orders";
-import type { DashboardStat } from "@/types/dashboard/order";
+import { orders as _orders } from "@/data/dashboard/orders";
+import type { DashboardStat, Order } from "@/types/dashboard/order";
+const orders = _orders as Order[];
 
 
 

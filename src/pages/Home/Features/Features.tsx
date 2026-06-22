@@ -1,4 +1,6 @@
-import { features } from "@/Mock_Data/data";
+import { features as _features } from "@/data/landing";
+import type { FeatureItem } from "@/types/features";
+const features = _features as FeatureItem[];
 
 
 export default function Features() {

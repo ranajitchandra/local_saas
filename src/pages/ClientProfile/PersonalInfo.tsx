@@ -1,4 +1,6 @@
-import { user } from "@/Mock_Data/ClientProfileData";
+import { user as _user } from "@/data/clientProfile";
+import type { UserProfile } from "@/types/clientProfile";
+const user = _user as UserProfile;
 import { useForm } from "react-hook-form";
 import StatCard from "./StatCard";
 
