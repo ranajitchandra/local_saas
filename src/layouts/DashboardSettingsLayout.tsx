@@ -3,7 +3,7 @@ import { Outlet } from "react-router";
 
 export default function DashboardSettingsLayout() {
     return (
-        <div className="quickmart-theme min-h-screen bg-background">
+        <div className="quickmart-theme bg-background">
             <div className="w-full">
                 <div className="flex flex-col gap-5 lg:flex-row">
                     <SettingsSidebar />

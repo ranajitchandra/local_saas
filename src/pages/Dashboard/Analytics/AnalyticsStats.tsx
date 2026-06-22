@@ -60,7 +60,7 @@ export default function AnalyticsStats() {
                     return (
                         <div
                             key={index}
-                            className="rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                            className="rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow">
                             <div className="flex items-start justify-between">
                                 <div>
                                     <div className="flex items-center gap-2">
