@@ -13,7 +13,7 @@ interface SidebarProps {
 export function DashboardSidebar({ isCollapsed, onToggleCollapse, navItems, user }: SidebarProps) {
     return (
         <aside
-            className={`hidden lg:flex flex-col border-r border-border/50 bg-card/65 backdrop-blur-md transition-all duration-300 shrink-0 select-none relative ${isCollapsed ? "w-20" : "w-64"
+            className={`hidden lg:flex flex-col border-r border-border/50 bg-card/65 backdrop-blur-md transition-all duration-300 shrink-0 select-none relative z-20 ${isCollapsed ? "w-20" : "w-64"
                 }`}
         >
             {/* Sidebar Logo Branding */}
@@ -30,7 +30,7 @@ export function DashboardSidebar({ isCollapsed, onToggleCollapse, navItems, user
             {/* Toggle Expand/Collapse Button */}
             <button
                 onClick={onToggleCollapse}
-                className="absolute top-5 -right-3 h-7 w-7 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-foreground shadow-sm hover:shadow z-10 hover:scale-105 transition-all cursor-pointer"
+                className="absolute top-5 -right-2.5 h-6 w-6 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-foreground  hover:shadow z-10 hover:scale-105 transition-all cursor-pointer"
             >
                 {isCollapsed ? <ChevronRight className="h-3.5 w-3.5" /> : <ChevronLeft className="h-3.5 w-3.5" />}
             </button>
