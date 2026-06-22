@@ -44,6 +44,7 @@ export default function Notifications() {
                                         defaultChecked={
                                             item.email
                                         }
+                                        className="accent-(--primary)"
                                     />
                                     Email
                                 </label>
@@ -56,6 +57,7 @@ export default function Notifications() {
                                                 defaultChecked={
                                                     item.sms
                                                 }
+                                                className="accent-(--primary)"
                                             />
                                             SMS
                                         </label>
@@ -69,6 +71,7 @@ export default function Notifications() {
                                                 defaultChecked={
                                                     item.push
                                                 }
+                                                className="accent-(--primary)"
                                             />
                                             Push
                                         </label>

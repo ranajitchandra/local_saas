@@ -23,7 +23,7 @@ export function StatsCard({
                 </div>
             </div>
 
-            <h3 className="text-xl xl:text-3xl font-bold tracking-tight text-foreground">
+            <h3 className="text-xl xl:text-2xl font-bold tracking-tight text-foreground">
                 {stat.value}
             </h3>
 

@@ -14,7 +14,7 @@ export default function ProductStats({ title, value, icon: Icon }: Props) {
             </p>
             <div className="flex items-center justify-between gap-2">
 
-                <h3 className={`text-xl xl:text-3xl font-semibold ${title === "Low Stock" ? "text-red-500" : "text-muted-foreground"}`}>
+                <h3 className={`text-xl xl:text-2xl font-semibold ${title === "Low Stock" ? "text-red-500" : "text-muted-foreground"}`}>
                     {value}
                 </h3>
 

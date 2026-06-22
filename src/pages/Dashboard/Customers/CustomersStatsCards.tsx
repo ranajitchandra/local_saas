@@ -63,7 +63,7 @@ export default function CustomersStatsCards() {
                 return (
                     <Card
                         key={item.id}
-                        className="border-border bg-card p-4 lg:p-6 shadow-sm transition-all hover:shadow-md"
+                        className="border-border bg-card p-4 lg:p-5 shadow-sm transition-all hover:shadow-md"
                     >
                         <div className="flex items-start justify-between">
                             {/* Icon */}
@@ -93,7 +93,7 @@ export default function CustomersStatsCards() {
                                 {item.title}
                             </p>
 
-                            <h3 className="mt-1 text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">
+                            <h3 className="mt-1 text-2xl md:text-2xl font-bold tracking-tight text-foreground">
                                 {item.value}
                             </h3>
                         </div>
