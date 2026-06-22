@@ -4,7 +4,9 @@ import { Monitor, ArrowRight } from "lucide-react"
 import { ProductCard } from "./ProductCard"
 import { SwiperNavigation } from "./SwiperNavigation"
 import "swiper/css"
-import { electronicsproducts } from "@/Mock_Data/data"
+import { electronicsproducts as _electronicsproducts } from "@/data/products"
+import type { ElectronicsProduct } from "@/types/product";
+const electronicsproducts = _electronicsproducts as ElectronicsProduct[];
 
 export function ElectronicsCategory() {
    

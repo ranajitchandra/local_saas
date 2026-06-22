@@ -149,29 +149,22 @@ export default function OrdersTable() {
         setEditOrder(null);
     };
 
-    function handleClick () {
+    function handleClick() {
         navigate("/dashboard/orders/order-delivery-checkout")
     }
 
     return (
         <div className="quickmart-theme">
             <div className="rounded-3xl border bg-card shadow-sm">
-
                 {/* HEADER */}
-
                 <div className="flex flex-col gap-4 border-b p-5 md:flex-row md:items-center md:justify-between">
-
                     <div className="flex gap-3">
-                        <Button
-                            variant="outline"
-                        >
+                        <Button variant="outline"  >
                             <Filter className="mr-2 h-4 w-4" />
                             Filters
                         </Button>
 
-                        <Button
-                            variant="outline"
-                        >
+                        <Button variant="outline" >
                             <Download className="mr-2 h-4 w-4" />
                             Export
                         </Button>
@@ -179,84 +172,29 @@ export default function OrdersTable() {
 
                     <Dialog
                         open={openCreate}
-                        onOpenChange={
-                            setOpenCreate
-                        }
+                        onOpenChange={setOpenCreate}
                     >
-                        <DialogTrigger
-                            asChild
-                        >
-                            <Button>
-                                <Plus className="mr-2 h-4 w-4" />
-                                Create Manual
-                                Order
-                            </Button>
+                        <DialogTrigger asChild>
+                            <Button>  <Plus className="mr-2 h-4 w-4" /> Create Manual Order </Button>
                         </DialogTrigger>
 
                         <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>
-                                    Create
-                                    Order
-                                </DialogTitle>
-                            </DialogHeader>
-
+                            <DialogHeader> <DialogTitle>   Create Order </DialogTitle> </DialogHeader>
                             <div className="space-y-4">
-
                                 <Input
                                     placeholder="Customer Name"
-                                    value={
-                                        newOrder.customer
-                                    }
-                                    onChange={(
-                                        e
-                                    ) =>
-                                        setNewOrder(
-                                            {
-                                                ...newOrder,
-                                                customer:
-                                                    e
-                                                        .target
-                                                        .value,
-                                            }
-                                        )
-                                    }
+                                    value={newOrder.customer}
+                                    onChange={(e) => setNewOrder({ ...newOrder, customer: e.target.value })}
                                 />
-
                                 <Input
                                     type="number"
                                     placeholder="Amount"
-                                    value={
-                                        newOrder.amount
-                                    }
-                                    onChange={(
-                                        e
-                                    ) =>
-                                        setNewOrder(
-                                            {
-                                                ...newOrder,
-                                                amount:
-                                                    e.target.value,
-                                            }
-                                        )
-                                    }
+                                    value={newOrder.amount}
+                                    onChange={(e) => setNewOrder({ ...newOrder, amount: e.target.value, })}
                                 />
-
                                 <Select
-                                    value={
-                                        newOrder.status
-                                    }
-                                    onValueChange={(
-                                        value
-                                    ) =>
-                                        setNewOrder(
-                                            {
-                                                ...newOrder,
-                                                status:
-                                                    value as OrderStatus,
-                                            }
-                                        )
-                                    }
+                                    value={newOrder.status}
+                                    onValueChange={(value) => setNewOrder({ ...newOrder, status: value as OrderStatus })}
                                 >
                                     <SelectTrigger>
                                         <SelectValue />
@@ -266,11 +204,9 @@ export default function OrdersTable() {
                                         <SelectItem value="Pending">
                                             Pending
                                         </SelectItem>
-
                                         <SelectItem value="Shipped">
                                             Shipped
                                         </SelectItem>
-
                                         <SelectItem value="Delivered">
                                             Delivered
                                         </SelectItem>
@@ -279,9 +215,7 @@ export default function OrdersTable() {
 
                                 <Button
                                     className="w-full"
-                                    onClick={
-                                        createOrder
-                                    }
+                                    onClick={createOrder}
                                 >
                                     Save Order
                                 </Button>
@@ -299,23 +233,18 @@ export default function OrdersTable() {
                                 <th className="px-6 py-4 text-left">
                                     Order ID
                                 </th>
-
                                 <th className="px-6 py-4 text-left">
                                     Customer
                                 </th>
-
                                 <th className="px-6 py-4 text-left">
                                     Date
                                 </th>
-
                                 <th className="px-6 py-4 text-left">
                                     Amount
                                 </th>
-
                                 <th className="px-6 py-4 text-left">
                                     Status
                                 </th>
-
                                 <th className="px-6 py-4 text-center">
                                     Actions
                                 </th>
@@ -330,34 +259,19 @@ export default function OrdersTable() {
                                         onClick={handleClick}
                                         className="border-t cursor-pointer hover:bg-primary/2 transition-all duration-300"
                                     >
-                                        <td className="px-6 py-5 font-semibold text-primary">
-                                            {order.id}
-                                        </td>
-
+                                        <td className="px-6 py-5 font-semibold text-primary">  {order.id} </td>
                                         <td className="px-6 py-5">
                                             <div className="flex items-center gap-3">
                                                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 font-semibold text-primary">
                                                     {order.initials}
                                                 </div>
-
-                                                <span>
-                                                    {order.customer}
-                                                </span>
+                                                <span> {order.customer} </span>
                                             </div>
                                         </td>
-
+                                        <td className="px-6 py-5"> {order.date} </td>
+                                        <td className="px-6 py-5 font-semibold"> {formatCurrency(order.amount)} </td>
                                         <td className="px-6 py-5">
-                                            {order.date}
-                                        </td>
-
-                                        <td className="px-6 py-5 font-semibold">
-                                            {formatCurrency(order.amount)}
-                                        </td>
-
-                                        <td className="px-6 py-5">
-                                            <span
-                                                className={`rounded-full px-3 py-1 text-xs font-semibold ${getStatusStyle(order.status)}`}
-                                            >
+                                            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${getStatusStyle(order.status)}`} >
                                                 {order.status}
                                             </span>
                                         </td>
@@ -366,17 +280,11 @@ export default function OrdersTable() {
                                             <Button
                                                 size="icon"
                                                 variant="ghost"
-                                                onClick={() =>
-                                                    setEditOrder(order)
-                                                }
+                                                onClick={() => setEditOrder(order)}
                                             >
                                                 <Pencil className="h-4 w-4" />
                                             </Button>
-
-                                            <Button
-                                                size="icon"
-                                                variant="ghost"
-                                            >
+                                            <Button size="icon" variant="ghost" >
                                                 <MoreVertical className="h-4 w-4" />
                                             </Button>
                                         </td>
@@ -390,7 +298,6 @@ export default function OrdersTable() {
                 {/* PAGINATION */}
 
                 <div className="flex flex-col gap-4 border-t p-5 md:flex-row md:items-center md:justify-between">
-
                     <p className="text-sm text-muted-foreground">
                         Showing{" "}
                         {paginatedOrders.length}{" "} of {orders.length}{" "}
@@ -398,53 +305,32 @@ export default function OrdersTable() {
                     </p>
 
                     <div className="flex items-center gap-2">
-
                         <Button
                             variant="outline"
                             size="icon"
-                            disabled={
-                                page === 1
-                            }
-                            onClick={() =>
-                                setPage(
-                                    page - 1
-                                )
-                            }
+                            disabled={page === 1}
+                            onClick={() => setPage(page - 1)}
                         >
                             <ChevronLeft className="h-4 w-4" />
                         </Button>
 
-                        {Array.from({
-                            length: totalPages,
-                        }).map(
-                            (_, index) => (
-                                <Button
-                                    key={
-                                        index
-                                    }
-                                    variant={page === index + 1 ? "default" : "outline"}
-                                    size="icon"
-                                    onClick={() =>
-                                        setPage(index + 1)
-                                    }
-                                >
-                                    {index + 1}
-                                </Button>
-                            )
+                        {Array.from({ length: totalPages }).map((_, index) => (
+                            <Button
+                                key={index}
+                                variant={page === index + 1 ? "default" : "outline"}
+                                size="icon"
+                                onClick={() => setPage(index + 1)}
+                            >
+                                {index + 1}
+                            </Button>
+                        )
                         )}
 
                         <Button
                             variant="outline"
                             size="icon"
-                            disabled={
-                                page ===
-                                totalPages
-                            }
-                            onClick={() =>
-                                setPage(
-                                    page + 1
-                                )
-                            }
+                            disabled={page === totalPages}
+                            onClick={() => setPage(page + 1)}
                         >
                             <ChevronRight className="h-4 w-4" />
                         </Button>
@@ -456,109 +342,44 @@ export default function OrdersTable() {
 
             <Dialog
                 open={!!editOrder}
-                onOpenChange={(
-                    open
-                ) => {
-                    if (!open)
-                        setEditOrder(
-                            null
-                        );
-                }}
+                onOpenChange={(open) => { if (!open) { setEditOrder(null) } }}
             >
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle>
-                            Edit Order
-                        </DialogTitle>
+                        <DialogTitle>  Edit Order </DialogTitle>
                     </DialogHeader>
 
                     {editOrder && (
                         <div className="space-y-4">
-
                             <Input
-                                value={
-                                    editOrder.customer
-                                }
-                                onChange={(
-                                    e
-                                ) =>
-                                    setEditOrder(
-                                        {
-                                            ...editOrder,
-                                            customer:
-                                                e
-                                                    .target
-                                                    .value,
-                                        }
-                                    )
-                                }
+                                value={editOrder.customer}
+                                onChange={(e) => setEditOrder({ ...editOrder, customer: e.target.value, })}
                             />
-
                             <Input
                                 type="number"
-                                value={
-                                    editOrder.amount
-                                }
-                                onChange={(
-                                    e
-                                ) =>
-                                    setEditOrder(
-                                        {
-                                            ...editOrder,
-                                            amount:
-                                                Number(
-                                                    e
-                                                        .target
-                                                        .value
-                                                ),
-                                        }
-                                    )
-                                }
+                                value={editOrder.amount}
+                                onChange={(e) => setEditOrder({ ...editOrder, amount: Number(e.target.value) })}
                             />
-
                             <Select
-                                value={
-                                    editOrder.status
-                                }
-                                onValueChange={(
-                                    value
-                                ) =>
-                                    setEditOrder(
-                                        {
-                                            ...editOrder,
-                                            status:
-                                                value as OrderStatus,
-                                        }
-                                    )
-                                }
+                                value={editOrder.status}
+                                onValueChange={(value) => setEditOrder({ ...editOrder, status: value as OrderStatus })}
                             >
-                                <SelectTrigger>
-                                    <SelectValue />
-                                </SelectTrigger>
+                                <SelectTrigger> <SelectValue /> </SelectTrigger>
 
                                 <SelectContent>
                                     <SelectItem value="Pending">
                                         Pending
                                     </SelectItem>
-
                                     <SelectItem value="Shipped">
                                         Shipped
                                     </SelectItem>
-
                                     <SelectItem value="Delivered">
                                         Delivered
                                     </SelectItem>
                                 </SelectContent>
                             </Select>
 
-                            <Button
-                                className="w-full"
-                                onClick={
-                                    updateOrder
-                                }
-                            >
-                                Update Order
-                            </Button>
+                            <Button className="w-full" onClick={updateOrder}>  Update Order </Button>
                         </div>
                     )}
                 </DialogContent>

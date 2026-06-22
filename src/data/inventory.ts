@@ -1,10 +1,7 @@
-import type { Product } from "@/types/inventory";
-
-
-export const inventoryProducts: Product[] = [
+export const inventoryProducts = [
     {
         id: 1,
-        image: "https://picsum.photos/80?1",
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
         name: "Premium Wireless Headphones",
         sku: "TECH-HD-091",
         category: "Electronics",
@@ -13,8 +10,8 @@ export const inventoryProducts: Product[] = [
         status: "In Stock",
     },
     {
-        id: 2 ,
-        image: "https://picsum.photos/80?2",
+        id: 2,
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
         name: "ActiveFlow Running Shoes",
         sku: "SPRT-SH-224",
         category: "Apparel",
@@ -24,7 +21,7 @@ export const inventoryProducts: Product[] = [
     },
     {
         id: 3,
-        image: "https://picsum.photos/80?3",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
         name: "SmartZen Watch Series 5",
         sku: "TECH-WT-005",
         category: "Electronics",
@@ -34,7 +31,7 @@ export const inventoryProducts: Product[] = [
     },
     {
         id: 4,
-        image: "https://picsum.photos/80?4",
+        image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
         name: "RetroSnap Camera",
         sku: "OPTIC-CM-442",
         category: "Electronics",
@@ -44,7 +41,7 @@ export const inventoryProducts: Product[] = [
     },
     {
         id: 5,
-        image: "https://picsum.photos/80?5",
+        image: "https://images.unsplash.com/photo-1527814050087-3793815479db",
         name: "Gaming Mouse Pro",
         sku: "TECH-MS-772",
         category: "Electronics",
@@ -54,7 +51,7 @@ export const inventoryProducts: Product[] = [
     },
     {
         id: 6,
-        image: "https://picsum.photos/80?6",
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
         name: "Minimal Desk Lamp",
         sku: "HOME-LP-210",
         category: "Home",
@@ -64,17 +61,17 @@ export const inventoryProducts: Product[] = [
     },
     {
         id: 7,
+        image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2",
         name: "Cotton Hoodie",
         sku: "APP-HD-111",
         category: "Apparel",
         price: 44,
         stock: 87,
         status: "In Stock",
-        image: "https://picsum.photos/80?7",
     },
     {
         id: 8,
-        image: "https://picsum.photos/80?8",
+        image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae",
         name: "Mechanical Keyboard",
         sku: "TECH-KB-901",
         category: "Electronics",
@@ -84,7 +81,7 @@ export const inventoryProducts: Product[] = [
     },
     {
         id: 9,
-        image: "https://picsum.photos/80?9",
+        image: "https://images.unsplash.com/photo-1591488320449-011701bb6704",
         name: "Portable SSD 1TB",
         sku: "TECH-SSD-101",
         category: "Electronics",
@@ -94,7 +91,7 @@ export const inventoryProducts: Product[] = [
     },
     {
         id: 10,
-        image: "https://picsum.photos/80?10",
+        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8",
         name: "Smart Water Bottle",
         sku: "LIFE-WB-202",
         category: "Lifestyle",

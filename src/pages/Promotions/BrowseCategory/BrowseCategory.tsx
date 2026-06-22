@@ -3,7 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { ArrowRight } from "lucide-react";
 import { SwiperNavigation } from "@/components/landing/SwiperNavigation";
-import { browseCategoryItems } from "@/Mock_Data/data";
+import { browseCategoryItems as _browseCategoryItems } from "@/data/browseCategories";
+import type { BrowseCategoryItem } from "@/types/browseCategory";
+const browseCategoryItems = _browseCategoryItems as BrowseCategoryItem[];
 import { CategoryCard } from "./CategoryCard";
 
 export function BrowseCategory() {

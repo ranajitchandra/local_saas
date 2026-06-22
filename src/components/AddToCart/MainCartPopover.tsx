@@ -1,6 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import { useForm } from "react-hook-form";
-import type { PaymentMethod, OrderFormValues, OrderPayload } from "./types";
+import type { PaymentMethod, OrderFormValues, OrderPayload } from "@/types/cart.types";
 
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useCart } from "@/hooks/useCart";

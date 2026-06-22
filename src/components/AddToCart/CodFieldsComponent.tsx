@@ -2,7 +2,7 @@ import { User, Mail, Phone, MapPin } from "lucide-react";
 import type { FieldErrors, UseFormRegister } from "react-hook-form";
 import { INPUT_NORMAL, INPUT_ERROR } from "./constants";
 import FieldWrapper from "./FieldWrapper";
-import type { OrderFormValues } from "./types";
+import type { OrderFormValues } from "@/types/cart.types";
 
 interface CodFieldsProps {
     register: UseFormRegister<OrderFormValues>;

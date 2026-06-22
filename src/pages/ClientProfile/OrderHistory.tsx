@@ -1,4 +1,6 @@
-import { orders } from "@/Mock_Data/ClientProfileData";
+import { orders as _orders } from "@/data/clientProfile";
+import type { Order } from "@/types/clientProfile";
+const orders = _orders as Order[];
 
 
 export default function OrderHistory() {

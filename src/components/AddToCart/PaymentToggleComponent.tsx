@@ -1,5 +1,5 @@
 import { CreditCard, Truck } from "lucide-react";
-import type { PaymentMethod } from "./types";
+import type { PaymentMethod } from "@/types/cart.types";
 
 interface PaymentToggleProps {
     paymentMethod: PaymentMethod;

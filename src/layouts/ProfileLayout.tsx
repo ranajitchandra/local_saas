@@ -2,7 +2,9 @@
 
 import { NavLink, Outlet } from "react-router";
 import { profileMenus } from "./profileMenus";
-import { user } from "@/Mock_Data/ClientProfileData";
+import { user as _user } from "@/data/clientProfile";
+import type { UserProfile } from "@/types/clientProfile";
+const user = _user as UserProfile;
 
 
 

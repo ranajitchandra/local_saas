@@ -1,5 +1,7 @@
-import { notificationSettings } from "@/Mock_Data/Dashboard/settings";
+import { notificationSettings as _notificationSettings } from "@/data/dashboard/settings";
+import type { NotificationSetting } from "@/types/dashboard/settings";
 import { Bell } from "lucide-react";
+const notificationSettings = _notificationSettings as NotificationSetting[];
 
 export default function Notifications() {
     return (
@@ -42,6 +44,7 @@ export default function Notifications() {
                                         defaultChecked={
                                             item.email
                                         }
+                                        className="accent-(--primary)"
                                     />
                                     Email
                                 </label>
@@ -54,6 +57,7 @@ export default function Notifications() {
                                                 defaultChecked={
                                                     item.sms
                                                 }
+                                                className="accent-(--primary)"
                                             />
                                             SMS
                                         </label>
@@ -67,6 +71,7 @@ export default function Notifications() {
                                                 defaultChecked={
                                                     item.push
                                                 }
+                                                className="accent-(--primary)"
                                             />
                                             Push
                                         </label>

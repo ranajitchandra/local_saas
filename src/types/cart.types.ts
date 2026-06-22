@@ -27,3 +27,28 @@ export type OrderFormValues = {
     couponCode: string;
 } & CardFields &
     CodFields;
+
+export interface OrderPayload {
+    order: {
+        items: CartItem[];
+        subtotal: number;
+        tax: number;
+        discount: number;
+        total: number;
+        couponCode: string | null;
+    };
+    payment:
+        | {
+            method: "card";
+            cardNumber: string;
+            expiry: string;
+            cvv: string;
+        }
+        | {
+            method: "cod";
+            fullName: string;
+            email: string;
+            phone: string;
+            address: string;
+        };
+}

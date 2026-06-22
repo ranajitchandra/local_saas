@@ -3,7 +3,9 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import { ProductCard } from "@/components/landing/ProductCard";
 import { SwiperNavigation } from "@/components/landing/SwiperNavigation";
-import { featuredProducts } from "@/Mock_Data/data";
+import { featuredProducts as _featuredProducts } from "@/data/products";
+import type { FeaturedProduct } from "@/types/product";
+const featuredProducts = _featuredProducts as FeaturedProduct[];
 
 export function FeaturedProducts() {
     return (
