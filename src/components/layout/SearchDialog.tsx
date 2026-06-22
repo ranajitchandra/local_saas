@@ -1,4 +1,4 @@
-import React from "react"
+
 import { Search, Command, HelpCircle, ArrowRight, Sun, Moon } from "lucide-react"
 import type { NavItem } from "@/types/layout";
 

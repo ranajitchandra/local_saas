@@ -1,6 +1,5 @@
 import {
     Search,
-    MapPin,
     Heart,
     User,
     Menu,

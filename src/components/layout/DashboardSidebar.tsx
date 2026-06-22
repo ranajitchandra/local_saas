@@ -1,4 +1,4 @@
-import React from "react"
+
 import { Link, NavLink } from "react-router"
 import { ChevronLeft, ChevronRight, Sparkles, LogOut } from "lucide-react"
 import type { NavItem, DashboardUser } from "@/types/layout";
