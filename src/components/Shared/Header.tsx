@@ -162,7 +162,7 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
                     {onToggleDarkMode && (
                         <button
                             onClick={onToggleDarkMode}
-                            className="text-foreground hover:text-primary transition-colors"
+                            className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer"
                             title="Toggle Light/Dark Theme"
                         >
                             {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -171,7 +171,7 @@ export default function Header({ isDarkMode, onToggleDarkMode }: HeaderProps) {
 
                     {/* User */}
                     <Link to="/profile">
-                        <button className="text-foreground hover:text-primary transition-colors">
+                        <button className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer">
                             <User className="h-5 w-5" />
                         </button>
                     </Link>

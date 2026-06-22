@@ -11,7 +11,7 @@ import { FeaturedProducts } from "./FeaturedProducts/FeaturedProducts"
 export default function HomePage() {
     return (
         <main className="w-full flex flex-col bg-background transition-colors duration-200">
-            <section className="space-y-12 w-full py-12 md:py-16 bg-background">
+            <section className="space-y-12 w-full py-16 md:py-18 bg-background">
                 <Banner />
                 <ExploreCategories />
                 <FeaturedProducts />
