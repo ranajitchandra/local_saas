@@ -9,6 +9,7 @@ Currently, two official plugins are available:
 This is local saas product.
 It is server client satisfied thing.
 There is lots of options to selected services.
+It could be done client best experience. 
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
