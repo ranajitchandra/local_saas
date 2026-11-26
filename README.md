@@ -1,4 +1,4 @@
-# Local saas with React TypeScript web frontend 
+# Local saas with React TypeScript web fronten
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
